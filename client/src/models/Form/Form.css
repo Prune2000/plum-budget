@@ -38,9 +38,11 @@
 .add__value { width: 100px;}
 
 .add__btn {
-    font-size: 35px;
+    height: 50px;
+    width: 50px;
+    font-size: 15px;
     background: none;
-    border: none;
+    border: 3px black;
     color: #28B9B5;
     cursor: pointer;
     display: inline-block;

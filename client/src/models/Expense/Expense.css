@@ -1,0 +1,27 @@
+.budget__expenses {
+    padding: 12px;
+    text-transform: uppercase;
+}
+.budget__expenses {
+    background-color: #FF5049;
+}
+
+.budget__expenses--text {
+    float: left;
+    font-size: 13px;
+    color: #444;
+    margin-top: 2px;
+}
+
+.budget__expenses--value {
+    letter-spacing: 1px;
+    float: left;
+}
+
+.budget__expenses--percentage {
+    float: left;
+    width: 34px;
+    font-size: 11px;
+    padding: 3px 0;
+    margin-left: 10px;
+}
