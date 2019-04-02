@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const config = require('./config');
+const setupController = require('./controllers/setupController');
 const incomeController = require('./controllers/incomeController');
 const Incomes = require('./models/incomeModel');
 
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(config.getDbConnectionString());
+setupController(app);
 
 app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
