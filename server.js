@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const app = express();
 const config = require('./config');
 const setupController = require('./controllers/setupController');
-const incomeController = require('./controllers/incomeController');
 const Incomes = require('./models/incomeModel');
+const Expenses = require('./models/expenseModel');
 
 const port = process.env.PORT || 5000;
 //app.use('/src', express.static(__dirname + '/client'));
@@ -22,15 +22,29 @@ app.get('/api/hello', (req, res) => {
 app.post('/api/database', (req, res) => {
   console.log(req.body);
   
-  let newIncome = Incomes({
-    description: req.body.description,
-    price: req.body.price
-  });
-  newIncome.save(err => {
-      if (err) throw err;
-      res.send('Success');
-  });
-
+  if (req.body.type == 'inc') {
+    let newIncome = Incomes({
+      type: req.body.type,
+      description: req.body.description,
+      price: req.body.price
+    });
+    newIncome.save(err => {
+        if (err) throw err;
+        res.send('Success - New income registered!');
+    });
+  }
+  else if (req.body.type == 'exp') {
+    let newExpense = Expenses({
+      type: req.body.type,
+      description: req.body.description,
+      price: req.body.price
+    });
+    newExpense.save(err => {
+        if (err) throw err;
+        res.send('Success - New expense registered!');
+    });
+  }
+  
   //incomeController(req.body);
   
   /*res.send(
