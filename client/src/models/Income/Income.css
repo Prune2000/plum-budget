@@ -6,6 +6,7 @@
 .budget__income {
     margin-bottom: 10px;
     background-color: #28B9B5;
+    height: 20px;
 }
 
 .budget__income--text {
@@ -18,6 +19,7 @@
 .budget__income--value {
     letter-spacing: 1px;
     float: left;
+    margin-left: 20px;
 }
 
 .budget__income--percentage {

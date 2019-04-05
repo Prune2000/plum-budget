@@ -4,6 +4,7 @@
 }
 .budget__expenses {
     background-color: #FF5049;
+    height: 20px;
 }
 
 .budget__expenses--text {
@@ -16,6 +17,7 @@
 .budget__expenses--value {
     letter-spacing: 1px;
     float: left;
+    margin-left: 20px;
 }
 
 .budget__expenses--percentage {
