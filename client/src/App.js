@@ -1,38 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './models/Header/Header';
 import Form from './models/Form/Form';
+
+
 class App extends Component {
 
-  state = {
-    response: '',
-    post: '',
-    responseToPost: '',
-  };
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  };
-
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    return body;
-  };
-
-render() {
+  render() {
     return (
       <div className="App">
         <Header />
         
           <Form />
-       
+
+          <div class="container clearfix">
+            <div class="income">
+              <h2 class="income__title">Incomes</h2>
+              
+              <div class="income__list">
+                                          
+              </div>
+
+            </div>
+          
+
+          <div class="expenses">
+            <h2 class="expenses__title">Expenses</h2>
+            
+            <div class="expenses__list">
+                
+            </div>
+          </div>
+        </div>
+            
+  
       </div>
     );
   }
 }
+
 export default App;

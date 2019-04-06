@@ -8,8 +8,8 @@ class Form extends React.Component {
 
     state = {
       response: '',
-      
-      type: 'exp',
+  
+      type: 'inc',
       description: '',
       price: '',
       
@@ -39,7 +39,7 @@ class Form extends React.Component {
             <div className="add">
                 <div className="add__container">
                   <form onSubmit={this.handleSubmit}>
-                    <select className="add__type" name="type" value="inc" onChange={e => this.setState({ type: e.target.value })}>
+                    <select className="add__type" name="type" onChange={e => this.setState({ type: e.target.value })}>
                         <option value="inc">+</option>
                         <option value="exp">-</option>
                     </select>
