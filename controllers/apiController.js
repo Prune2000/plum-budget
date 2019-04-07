@@ -11,41 +11,41 @@ module.exports = app => {
     app.get('/api/incomes', (req, res) => {
         Incomes.find({ type: 'inc'}, (err, incomes) => {
             if (err) throw err;
-            res.send(incomes);
+            res.send(JSON.stringify(incomes));
         });
     });
 
     app.get('/api/expenses', (req, res) => {
-        Incomes.find({ type: 'exp'}, (err, expenses) => {
+        Expenses.find({ type: 'exp'}, (err, expenses) => {
             if (err) throw err;
-            res.send(expenses);
+            res.send(JSON.stringify(expenses));
         });
     });
 
     app.post('/api/database', (req, res) => {
-        console.log(req.body);
+        //console.log(req.body);
         
         if (req.body.type == 'inc') {
-        let newIncome = Incomes({
-            type: req.body.type,
-            description: req.body.description,
-            price: req.body.price
-        });
-        newIncome.save(err => {
-            if (err) throw err;
-            res.send('Success - New income registered!');
-        });
+            let newIncome = Incomes({
+                type: req.body.type,
+                description: req.body.description,
+                price: req.body.price
+            });
+            newIncome.save(err => {
+                if (err) throw err;
+                res.send(req.body);
+            });
         }
         else if (req.body.type == 'exp') {
-        let newExpense = Expenses({
-            type: req.body.type,
-            description: req.body.description,
-            price: req.body.price
-        });
-        newExpense.save(err => {
-            if (err) throw err;
-            res.send('Success - New expense registered!');
-        });
+            let newExpense = Expenses({
+                type: req.body.type,
+                description: req.body.description,
+                price: req.body.price
+            });
+            newExpense.save(err => {
+                if (err) throw err;
+                res.send(`${req.body.description}`);
+            });
         }
     });
 }

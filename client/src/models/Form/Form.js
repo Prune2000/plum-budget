@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
 
-class Form extends React.Component {
+class Form extends Component {
     constructor(props) {
       super(props);
     }
@@ -27,10 +27,11 @@ class Form extends React.Component {
           type: this.state.type,
           description: this.state.description,
           price: this.state.price
-         }),
+        }),
       });
       const body = await response.text();
       this.setState({ responseToPost: body });
+      document.querySelector('.add__form').reset();
     };
 
     render() {
@@ -38,7 +39,7 @@ class Form extends React.Component {
         <div className="bottom">
             <div className="add">
                 <div className="add__container">
-                  <form onSubmit={this.handleSubmit}>
+                  <form className="add__form" onSubmit={this.handleSubmit}>
                     <select className="add__type" name="type" onChange={e => this.setState({ type: e.target.value })}>
                         <option value="inc">+</option>
                         <option value="exp">-</option>
@@ -59,6 +60,7 @@ class Form extends React.Component {
                     />
                     <button type="submit" className="add__btn">Submit</button>
                   </form>
+                  <p>{this.state.responseToPost}</p>
                 </div>
             </div>
         </div>
