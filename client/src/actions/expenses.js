@@ -1,4 +1,4 @@
-import axios from '../axios/axios';
+import axios from 'axios';
  
 const _addExpense = (expense) => ({
     type: 'ADD_EXPENSE',
@@ -23,29 +23,29 @@ export const addExpense = (expenseData = {
     };
 };
  
-const _removeExpense = ({ id } = {}) => ({
+const _removeExpense = ({ _id } = {}) => ({
     type: 'REMOVE_EXPENSE',
-    id
+    _id
 });
  
-export const removeExpense = ({ id } = {}) => {
+export const removeExpense = ({ _id } = {}) => {
     return (dispatch) => {
-        return axios.delete(`/api/expenses/${id}`).then(() => {
-            dispatch(_removeExpense({ id }));
+        return axios.delete(`/api/expenses/${_id}`).then(() => {
+            dispatch(_removeExpense({ _id }));
         })
     }
 };
  
-const _editExpense = (id, updates) => ({
+const _editExpense = (_id, updates) => ({
     type: 'EDIT_EXPENSE',
-    id,
+    _id,
     updates
 });
  
-export const editExpense = (id, updates) => {
+export const editExpense = (_id, updates) => {
     return (dispatch) => {
-        return axios.put(`/api/expenses/${id}`, updates).then(() => {
-            dispatch(_editExpense(id, updates));
+        return axios.put(`/api/expenses/${_id}`, updates).then(() => {
+            dispatch(_editExpense(_id, updates));
         });
     }
 };

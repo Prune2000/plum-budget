@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
+import IncomeList from './components/IncomeList/IncomeList';
 
 
 
@@ -15,14 +16,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const responseIncome = await fetch('/api/incomes', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
-    let bodyIncome = await responseIncome.json();
-    this.setState({ incomes: bodyIncome });
+    
 
     const responseExpense = await fetch('/api/expenses', {
       method: 'GET',
@@ -45,20 +39,7 @@ class App extends Component {
             <div className="income">
               <h2 className="income__title">Incomes</h2>
                               
-              <div className="income__list">
-                {this.state.incomes.map(el => (
-                  <div className="item clearfix" id={el._id}> 
-                    <div className="item__description">{el.description}</div> 
-                    <div className="right clearfix"> 
-                      <div className="item__value">{el.price}</div> 
-                      <div className="item__delete"> 
-                        <button className="item__delete--btn">
-                        <i className="ion-ios-close-outline"></i></button> 
-                      </div> 
-                    </div> 
-                  </div>
-                ))}     
-              </div>
+              <IncomeList />
 
             </div>
           
