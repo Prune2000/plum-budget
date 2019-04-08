@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Income.css';
+import './IncomeTotal.css';
 
 class Income extends React.Component {
     constructor(props) {

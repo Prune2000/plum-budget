@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import elements from './views/base';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

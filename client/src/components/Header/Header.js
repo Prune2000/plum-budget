@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
-import Income from '../Income/Income';
-import Expense from '../Expense/Expense';
+import IncomeTotal from '../IncomeTotal/IncomeTotal';
+import ExpenseTotal from '../ExpenseTotal/ExpenseTotal';
 
 class Header extends React.Component {
     constructor(props) {
@@ -23,9 +23,9 @@ class Header extends React.Component {
                 
                 <div className="budget__value">+ 2,345.64</div>
                 
-                <Income />
+                <IncomeTotal />
                 
-                <Expense />
+                <ExpenseTotal />
             </div>
         </div>
       );
