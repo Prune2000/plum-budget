@@ -63,6 +63,7 @@ export const getExpenses = () => {
             result.data.forEach(item => {
                 expenses.push(item);
             });
+            console.log(expenses);
  
             dispatch(_getExpenses(expenses));
         });

@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
 import IncomeList from './components/IncomeList/IncomeList';
+import ExpenseList from './components/ExpenseList/ExpenseList';
 
 
 
@@ -46,24 +47,9 @@ class App extends Component {
 
           <div className="expenses">
             <h2 className="expenses__title">Expenses</h2>
+
+              <ExpenseList />
             
-            <div className="expenses__list">
-            
-              {this.state.expenses.map(el => (
-                
-                <div className="item clearfix" id={el._id}> 
-                <div className="item__description">{el.description}</div> 
-                <div className="right clearfix"> 
-                  <div className="item__value">{el.price}</div> 
-                  <div className="item__delete"> 
-                    <button className="item__delete--btn">
-                    <i className="ion-ios-close-outline"></i></button> 
-                  </div> 
-                </div> 
-              </div>
-              ))}
-            
-            </div>
           </div>
         </div>
             

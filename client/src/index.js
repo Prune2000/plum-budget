@@ -17,7 +17,9 @@ const template = (
     </Provider>
 );
 
-store.dispatch(getIncomes()).then(() => {
+let Dispatch = (store.dispatch(getIncomes()), store.dispatch(getExpenses()));
+
+Dispatch.then(() => {
     ReactDOM.render(template, document.getElementById('root'));
 });
 

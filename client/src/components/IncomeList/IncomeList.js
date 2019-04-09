@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const IncomeList = (props) => (
     console.log(props.incomes),
     <div className="income__list">
-        {props.incomes.income.map(income => (
+        {props.incomes.map(income => (
             <div className="item clearfix" id={income._id}> 
             <div className="item__description">{income.description}</div> 
             <div className="right clearfix"> 
@@ -21,7 +21,7 @@ const IncomeList = (props) => (
  
 const mapStateToProps = (state) => {
     return {
-        incomes: state
+        incomes: state.income
     };
 }
  

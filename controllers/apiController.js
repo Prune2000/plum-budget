@@ -8,6 +8,13 @@ module.exports = app => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
+    app.get('/api/budget'), (req, res) => {
+        Budget.findAll().then((err, budget) => {
+            if (err) throw err;
+            res.send(JSON.stringify(budget));
+        });
+    }
+
     app.get('/api/incomes', (req, res) => {
         Incomes.find({ type: 'inc'}, (err, incomes) => {
             if (err) throw err;
