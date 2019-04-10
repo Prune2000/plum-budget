@@ -1,4 +1,4 @@
-**Plum Budget is built using the MERN stack (MongoDB, Express, React, Norde.js).**
+**Plum Budget is built using the MERN stack (MongoDB, Express, React/Redux, Node.js).**
 
 **The goal is to build a secure and confidential budget app.** Too many budget apps will sell financial information to 3rd parties as well as track users to get better insights on their shopping habits. This app aims to give a free and confidential app to track your daily finances.
 
