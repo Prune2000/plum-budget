@@ -1,21 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import './IncomeTotal.css';
 
-class Income extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-    render() {
-      return (
-        <div className="budget__income clearfix">
-            <div className="budget__income--text">Income</div>
-            <div className="right">
-                <div className="budget__income--value">+ 4,300.00</div>
-                <div className="budget__income--percentage">&nbsp;</div>
-            </div>
-        </div>    
-        );
-    }
-};
+const IncomeTotal = (props) => (
 
-export default Income;
+    <div className="budget__income clearfix">
+        <div className="budget__income--text">Income</div>
+        <div className="right">
+            <div className="budget__income--value">+ {props.total}</div>
+            <div className="budget__income--percentage">&nbsp;</div>
+        </div>
+    </div> 
+);
+
+const mapStateToProps = (state) => {
+    let priceArray = [];
+    state.income.map(income => {
+        return priceArray.push(Number(income.price)); // the prices are stored as strings
+    });
+    const arrSum = arr => arr.reduce((a,b) => a + b, 0);
+    let priceTotal = arrSum(priceArray);
+    
+    console.log(priceArray);
+    return {
+        incomes: state.income,
+        total: priceTotal
+    };
+}
+ 
+export default connect(mapStateToProps)(IncomeTotal);

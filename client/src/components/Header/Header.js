@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Header.css';
 import IncomeTotal from '../IncomeTotal/IncomeTotal';
 import ExpenseTotal from '../ExpenseTotal/ExpenseTotal';
 
 class Header extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-
+    
     render() {
 
       let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
