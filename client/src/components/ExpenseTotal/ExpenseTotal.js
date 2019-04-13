@@ -7,24 +7,41 @@ const ExpenseTotal = (props) => (
     <div className="budget__expenses clearfix">
         <div className="budget__expenses--text">Expenses</div>
         <div className="right clearfix">
-            <div className="budget__expenses--value">- {props.total}</div>
+            <div className="budget__expenses--value">{props.total}</div>
             <div className="budget__expenses--percentage">45%</div>
         </div>
     </div>
 );
 
 const mapStateToProps = (state) => {
-    let priceArray = [];
+
+    // Calculate the budget for all the expenses
+    let expenseArray = [];
     state.expense.map(expense => {
-        return priceArray.push(Number(expense.price)); // the prices are stored as strings
+        return expenseArray.push(Number(expense.price)); // the prices are stored as strings
     });
     const arrSum = arr => arr.reduce((a,b) => a + b, 0);
-    let priceTotal = arrSum(priceArray);
-    
-    console.log(priceArray);
+    let expenseTotal = arrSum(expenseArray);
+
+    // Format the total
+    const formatNumber = (num, type) => {
+
+        let numSplit, int, dec, sign;
+
+        num = Math.abs(num);
+        num = num.toFixed(2); // always put 2 decimals and also rounds it. Ex: 2000 becomes 2000.00, 46.4589 becomes 46.46
+        numSplit = num.split('.');
+        int = numSplit[0];
+        if (int.length > 3) {
+            int = int.substr(0, int.length - 3) + ',' + int.substr(int.length - 3, 3); // input 2310, output 2,310
+        }
+        dec = numSplit[1];
+        return (type === 'exp' ? sign = '-' : sign = '+') + ' ' + int + '.' + dec;  
+    };
+
     return {
         expenses: state.expense,
-        total: priceTotal
+        total: formatNumber(expenseTotal, 'exp')
     };
 }
  
