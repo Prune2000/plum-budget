@@ -15,20 +15,7 @@ class App extends Component {
       expenses: [] 
     };
   }
-
-  async componentDidMount() {
-    
-
-    const responseExpense = await fetch('/api/expenses', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
-    const bodyExpense = await responseExpense.json();
-    this.setState({ expenses: bodyExpense });
-  }
-
+  
   render() {
     return (
       <div className="App">
