@@ -48,7 +48,6 @@ const mapStateToProps = (state) => {
             return percentageTotal = `${Math.round((exp / inc) * 100)}%`
         };
     }
-    
 
     // Format the total
     const formatNumber = (num, type) => {

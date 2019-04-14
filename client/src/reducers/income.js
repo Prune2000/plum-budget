@@ -8,10 +8,10 @@ export default (state = incomesReducerDefaultState, action) => {
                 action.income
             ];
         case 'REMOVE_INCOME':
-            return state.filter(({ id }) => id !== action.id);
+            return state.filter(({ _id }) => _id !== action._id);
         case 'EDIT_INCOME':
             return state.map((income) => {
-                if (income.id === action.id) {
+                if (income._id === action._id) {
                     return {
                         ...income,
                         ...action.updates

@@ -8,7 +8,7 @@ const IncomeTotal = (props) => (
         <div className="budget__income--text">Income</div>
         <div className="right">
             <div className="budget__income--value">{props.total}</div>
-            <div className="budget__income--percentage">&nbsp;</div>
+            <ion-icon name="trash"></ion-icon>
         </div>
     </div> 
 );

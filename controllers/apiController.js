@@ -22,6 +22,14 @@ module.exports = app => {
         });
     });
 
+    app.delete(`/api/database/:id`, (req, res) => {
+        console.log(req.params);
+        Incomes.findByIdAndRemove(req.params.id, err => {
+            if (err) throw err;
+            res.send('Success');
+        });
+    });
+
     app.get('/api/expenses', (req, res) => {
         Expenses.find({ type: 'exp'}, (err, expenses) => {
             if (err) throw err;

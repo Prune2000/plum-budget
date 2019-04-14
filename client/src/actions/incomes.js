@@ -30,7 +30,7 @@ const _removeIncome = ({ _id } = {}) => ({
  
 export const removeIncome = ({ _id } = {}) => {
     return (dispatch) => {
-        return axios.delete(`/api/incomes/${_id}`).then(() => {
+        return axios.delete(`/api/database/${_id}`).then(() => {
             dispatch(_removeIncome({ _id }));
         })
     }

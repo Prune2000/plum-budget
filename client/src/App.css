@@ -95,11 +95,10 @@ h2 {
 
 
 .item__delete {
-    float: left;
+    float: right;
 }
 
 .item__delete--btn {
-    font-size: 22px;
     background: none;
     border: none;
     cursor: pointer;
@@ -107,6 +106,10 @@ h2 {
     vertical-align: middle;
     line-height: 1;
     display: none;
+}
+
+.item__delete--btn img {
+  height: 20px;
 }
 
 .item__delete--btn:focus { outline: none; }
