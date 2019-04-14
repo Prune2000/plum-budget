@@ -29,10 +29,14 @@ export default class Form extends React.Component {
   onPriceChange(e) {
     const price = e.target.value;
     this.setState(() => ({ price: price }));
-  } 
+  }
 
   onSubmit(e) {
     e.preventDefault();
+    const clearFields = () => {
+      this.state.description = '';
+      this.state.price = ''
+    }
 
     if (!this.state.type || !this.state.description || !this.state.price) {
         this.setState(() => ({ error: 'Please set a description and a value!' }));
@@ -45,6 +49,7 @@ export default class Form extends React.Component {
                 price: this.state.price
             }
         );
+        clearFields();
     }
   }
     
