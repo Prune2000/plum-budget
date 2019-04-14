@@ -10,3 +10,7 @@ To launch the app:
 yarn dev
 
 Will listen to localhost:3000
+
+**License**
+
+plum-budget is licensed under the GNU Affero General Public License 3 or any later version at your choice with an exception for Highcharts. See LICENSE for details.
