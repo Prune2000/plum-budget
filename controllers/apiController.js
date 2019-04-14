@@ -22,8 +22,7 @@ module.exports = app => {
         });
     });
 
-    app.delete(`/api/database/:id`, (req, res) => {
-        console.log(req.params);
+    app.delete(`/api/incomes/:id`, (req, res) => {
         Incomes.findByIdAndRemove(req.params.id, err => {
             if (err) throw err;
             res.send('Success');
@@ -36,6 +35,14 @@ module.exports = app => {
             res.send(JSON.stringify(expenses));
         });
     });
+
+    app.delete(`/api/expenses/:id`, (req, res) => {
+        Expenses.findByIdAndRemove(req.params.id, err => {
+            if (err) throw err;
+            res.send('Success');
+        });
+    });
+
 
     app.post('/api/database', (req, res) => {
         //console.log(req.body);
