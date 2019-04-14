@@ -51,7 +51,7 @@ module.exports = app => {
             });
             newExpense.save(err => {
                 if (err) throw err;
-                res.send(`${req.body.description}`);
+                res.send(req.body);
             });
         }
     });

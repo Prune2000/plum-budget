@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Form from './components/Form/Form';
 import IncomeList from './components/IncomeList/IncomeList';
 import ExpenseList from './components/ExpenseList/ExpenseList';
+import AddBudget from './components/AddBudget/AddBudget';
 
 
 
@@ -15,13 +15,13 @@ class App extends Component {
       expenses: [] 
     };
   }
-  
+
   render() {
     return (
       <div className="App">
         <Header />
         
-          <Form />
+          <AddBudget />
 
           <div className="container clearfix">
             <div className="income">
