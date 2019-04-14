@@ -33,6 +33,8 @@ export default class Form extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+
+    // Clear the fields of the form after submission but keeps the current selected type
     const clearFields = () => {
       this.state.description = '';
       this.state.price = ''
@@ -41,7 +43,7 @@ export default class Form extends React.Component {
     if (!this.state.type || !this.state.description || !this.state.price) {
         this.setState(() => ({ error: 'Please set a description and a value!' }));
     } else {
-        this.setState(() => ({ error: '' }));
+        this.setState(() => ({ error: '' })); // Remove any current error after a success
         this.props.onSubmitBudget(
             {
                 type: this.state.type,
