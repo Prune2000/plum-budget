@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
-import Header from './components/Header/Header';
-import IncomeList from './components/IncomeList/IncomeList';
-import ExpenseList from './components/ExpenseList/ExpenseList';
-import AddBudget from './components/AddBudget/AddBudget';
+import './Dashboard.css';
+import Header from '../Header/Header';
+import IncomeList from '../IncomeList/IncomeList';
+import ExpenseList from '../ExpenseList/ExpenseList';
+import AddBudget from '../AddBudget/AddBudget';
 
-
-
-class App extends Component {
+class Dashboard extends Component {
   constructor() {
     super();
     this.state = { 
@@ -32,19 +30,17 @@ class App extends Component {
             </div>
           
 
-          <div className="expenses">
-            <h2 className="expenses__title">Expenses</h2>
+            <div className="expenses">
+              <h2 className="expenses__title">Expenses</h2>
 
               <ExpenseList />
             
+            </div>
           </div>
-        </div>
-            
-  
       </div>
       
     );
   }
 }
 
-export default App;
+export default Dashboard;
