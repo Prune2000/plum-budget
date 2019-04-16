@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import AppRouter from './routers/AppRouter';
 import * as serviceWorker from './serviceWorker';
 
 import getAppStore from './store/store';
@@ -13,7 +13,7 @@ const store = getAppStore();
  
 const template = (
     <Provider store={store}>
-        <App />
+        <AppRouter />
     </Provider>
 );
 
