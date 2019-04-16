@@ -13,7 +13,6 @@ const AddBudget = (props) => (
                             props.dispatch(addIncome(budget));
                         }
                         else {
-                            console.log(budget);
                             props.dispatch(addExpense(budget));
                         };
                     }}

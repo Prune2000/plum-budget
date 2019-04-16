@@ -63,7 +63,7 @@ export const getIncomes = () => {
             result.data.forEach(item => {
                 incomes.push(item);
             });
-            console.log(incomes);
+            //console.log(incomes);
  
             dispatch(_getIncomes(incomes));
         });

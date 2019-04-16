@@ -7,22 +7,24 @@ const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local').Strategy;
 const bCrypt = require('bcrypt');
 
-// route middleware to make sure a user is logged in
-const isLoggedIn = (req, res, next) => {
-
-    // if user is authenticated in the session, carry on 
-    if (req.isAuthenticated()) {
-        console.log(req.user);
-        return next();
-    }
-    // if they aren't redirect them to the home page
-    res.redirect('/');
-}
-
 module.exports = (app, passport) => {
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+
+    // route middleware to make sure a user is logged in
+    const isLoggedIn = (req, res, next) => {
+
+        // if user is authenticated in the session, carry on 
+        if (req.isAuthenticated()) {
+            return next();
+        }
+        // if they aren't redirect them to the home page
+        else {
+            console.log(req);
+            res.redirect('/');
+        } 
+    }
 
     passport.serializeUser((user, done) => {
         done(null, user._id);
@@ -34,11 +36,11 @@ module.exports = (app, passport) => {
         });
     });
 
+
     app.get('/dashboard', isLoggedIn, (req, res) => {
-        res.send({
-            user : req.user // get the user out of session and pass to template
-        });
+        res.redirect('/dashboard');
     });
+
 
     app.post('/login', passport.authenticate('login', {
         successRedirect: '/dashboard',
@@ -46,6 +48,17 @@ module.exports = (app, passport) => {
         failureFlash : true 
     }));
 
+    // =====================================
+    // LOGOUT ==============================
+    // =====================================
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
+    // =====================================
+    // SIGNUP ==============================
+    // =====================================
     app.post('/signup', passport.authenticate('signup', {
         successRedirect: '/dashboard',
         failureRedirect: '/',
@@ -166,7 +179,6 @@ module.exports = (app, passport) => {
     }
 
     // Passport Login
-    // Passport Login
     passport.use('login', new LocalStrategy({
         passReqToCallback : true
     },
@@ -189,10 +201,11 @@ module.exports = (app, passport) => {
                 console.log('Invalid Password');
                 return done(null, false, 
                     req.flash('message', 'Invalid Password'));
-                }
-                // User and password both match, return user from 
-                // done method which will be treated like success
-                return done(null, user);
+            }
+            // User and password both match, return user from 
+            // done method which will be treated like success
+            console.log(user);
+            return done(null, user);
             }
         );
     }));
