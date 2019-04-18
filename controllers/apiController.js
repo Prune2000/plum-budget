@@ -17,12 +17,13 @@ module.exports = (app, passport) => {
 
         // if user is authenticated in the session, carry on 
         if (req.isAuthenticated()) {
+            console.log('isLoggedIn worked');
             return next();
         }
         // if they aren't redirect them to the home page
         else {
-            console.log(req);
-            res.redirect('/');
+            console.log('Error in isLoggedIn');
+            return res.redirect('/');
         } 
     }
 
@@ -38,7 +39,7 @@ module.exports = (app, passport) => {
 
 
     app.get('/dashboard', isLoggedIn, (req, res) => {
-        res.redirect('/dashboard');
+        res.send(JSON.stringify(req.user)); 
     });
 
 
@@ -65,6 +66,12 @@ module.exports = (app, passport) => {
         failureFlash : true 
     }));
 
+
+
+
+    // =====================================
+    // BUDGET APIs =========================
+    // =====================================
     app.get('/api/budget'), (req, res) => {
         Budget.findAll().then((err, budget) => {
             if (err) throw err;

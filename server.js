@@ -5,8 +5,9 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
-const expressSession = require('express-session');
 const morgan = require('morgan');
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
 
 const config = require('./config');
 const phraseSession = require('./config/session');
@@ -23,13 +24,18 @@ app.use(cookieParser(phraseSession.hoy));
 
 
 // required for passport
-app.use(expressSession({ 
+app.use(session({ 
   secret: phraseSession.hey,
   name: 'Plum_cookie',
   proxy: true,
-  resave: true,
-  saveUninitialized: true 
+  resave: false,
+  saveUninitialized: false 
 }));
+app.use( (req, res, next) => { // Just here to log the req.session to see what’s going on
+  console.log('req.session', req.session);
+  return next();
+});
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
