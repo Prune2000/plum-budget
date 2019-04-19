@@ -79,9 +79,13 @@ module.exports = (app, passport) => {
         });
     }
 
-    app.get('/api/incomes', (req, res) => {
-        Incomes.find({ type: 'inc'}, (err, incomes) => {
+    app.get('/api/incomes', isLoggedIn, (req, res) => {
+        Incomes.find({ 
+            userID: req.session.passport.user,
+            type: 'inc'
+        }, (err, incomes) => {
             if (err) throw err;
+            console.log(incomes);
             res.send(JSON.stringify(incomes));
         });
     });
@@ -93,8 +97,11 @@ module.exports = (app, passport) => {
         });
     });
 
-    app.get('/api/expenses', (req, res) => {
-        Expenses.find({ type: 'exp'}, (err, expenses) => {
+    app.get('/api/expenses', isLoggedIn, (req, res) => {
+        Expenses.find({ 
+            userID: req.session.passport.user,
+            type: 'exp'
+        }, (err, expenses) => {
             if (err) throw err;
             res.send(JSON.stringify(expenses));
         });
@@ -113,6 +120,8 @@ module.exports = (app, passport) => {
         
         if (req.body.type == 'inc') {
             let newIncome = Incomes({
+                userID: req.body.userID,
+                username: req.body.username,
                 type: req.body.type,
                 description: req.body.description,
                 price: req.body.price
@@ -124,6 +133,8 @@ module.exports = (app, passport) => {
         }
         else if (req.body.type == 'exp') {
             let newExpense = Expenses({
+                userID: req.body.userID,
+                username: req.body.username,
                 type: req.body.type,
                 description: req.body.description,
                 price: req.body.price

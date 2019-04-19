@@ -6,12 +6,16 @@ const _addExpense = (expense) => ({
 });
  
 export const addExpense = (expenseData = {
+    userID: '',
+    username: '',
     type: '',
     description: '',
     price: ''
 }) => {
     return (dispatch) => {
         const expense = {
+            userID: expenseData.userID,
+            username: expenseData.username,
             type: expenseData.type,
             description: expenseData.description,
             price: expenseData.price,

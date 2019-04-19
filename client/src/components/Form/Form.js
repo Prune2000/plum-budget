@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import './Form.css';
 
 export default class Form extends React.Component {
@@ -8,14 +9,39 @@ export default class Form extends React.Component {
     this.onDescriptionChange = this.onDescriptionChange.bind(this);
     this.onPriceChange = this.onPriceChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
 
     this.state = {
+      userID: props.budget ? props.budget.userID: '',
+      username: props.budget ? props.budget.username: '',
       type: props.budget ? props.budget.type: 'inc',
       description: props.budget ? props.budget.description: '',
       price: props.budget ? props.budget.price: '',
 
       error: ''
     }
+  }
+
+  componentDidMount() {
+    this.getUser()
+  }
+
+  getUser() {
+    axios.get('/dashboard').then(res => {
+      if (res.data._id) {
+        this.setState({
+          userID: res.data._id,
+          username: res.data.username
+        });
+
+      } else {
+        this.setState({
+          userID: '',
+          username: ''
+        })
+      }
+    })
   }
   
   onTypeChange(e) {
@@ -46,9 +72,11 @@ export default class Form extends React.Component {
         this.setState(() => ({ error: '' })); // Remove any current error after a success
         this.props.onSubmitBudget(
             {
-                type: this.state.type,
-                description: this.state.description,
-                price: this.state.price
+              userID: this.state.userID,
+              username: this.state.username,
+              type: this.state.type,
+              description: this.state.description,
+              price: this.state.price
             }
         );
         clearFields();

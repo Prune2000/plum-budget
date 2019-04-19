@@ -6,12 +6,10 @@ import Dashboard from '../components/Dashboard/Dashboard';
  
 const AppRouter = () => (
     <BrowserRouter>
-        <div className='container-main'>
-            <Switch>
-                <Route exact path="/" component={Welcome}/>
-                <Route path="/dashboard" component={Dashboard} />
-            </Switch>
-        </div>
+        <Switch>
+            <Route exact path="/" component={Welcome}/>
+            <Route path="/dashboard" component={Dashboard} />
+        </Switch>
     </BrowserRouter>
 );
  

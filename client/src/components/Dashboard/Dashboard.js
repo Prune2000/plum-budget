@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import './Dashboard.css';
 import Header from '../Header/Header';
 import IncomeList from '../IncomeList/IncomeList';
 import ExpenseList from '../ExpenseList/ExpenseList';
 import AddBudget from '../AddBudget/AddBudget';
 
+import { connect } from 'react-redux';
+import getAppStore from '../../store/store';
+import { getIncomes } from '../../actions/incomes';
+import { getExpenses } from '../../actions/expenses';
+
+const store = getAppStore();
+
 class Dashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { 
       loggedIn: false,
       username: null,
@@ -22,7 +30,9 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.getUser()
+    store.dispatch(getIncomes());
+    store.dispatch(getExpenses());
+    this.getUser();
   }
 
   updateUser (userObject) {
@@ -34,12 +44,11 @@ class Dashboard extends Component {
       console.log('Get user response: ')
       console.log(res.data.username)
       if (res.data._id) {
-        console.log('Get User: There is a user saved in the server session: ')
-
         this.setState({
           loggedIn: true,
           username: res.data.username
-        })
+        });
+
       } else {
         console.log('Get user: no user');
         this.setState({
@@ -56,6 +65,7 @@ class Dashboard extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
+        <Provider store={store}>
         <div className="App">
           <Header />
           
@@ -78,10 +88,11 @@ class Dashboard extends Component {
               </div>
             </div>
         </div>
+        </Provider>
         
       );
     }
   }
 }
 
-export default Dashboard;
+export default connect()(Dashboard);

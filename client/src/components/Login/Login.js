@@ -1,6 +1,7 @@
 import React from 'react';
- 
-export default class Login extends React.Component {
+import { connect } from 'react-redux';
+
+class Login extends React.Component {
 
     render() {
         return (
@@ -19,3 +20,6 @@ export default class Login extends React.Component {
         );
     }
 }
+
+  
+export default connect()(Login);
