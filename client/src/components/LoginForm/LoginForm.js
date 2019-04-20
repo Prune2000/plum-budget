@@ -3,22 +3,18 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-class Signup extends React.Component {
+class Login extends React.Component {
     render() {
         return (
             <Formik
                 initialValues={{
                     username: '',
-                    email: '',
                     password: ''
                 }}
                 validationSchema={Yup.object().shape({
                     username: Yup.string()
                         .min(5, 'Username must be at least 5 characters')
                         .required('First Name is required'),
-                    email: Yup.string()
-                        .email('Email is invalid')
-                        .required('Email is required'),
                     password: Yup.string()
                         .min(6, 'Password must be at least 6 characters')
                         .required('Password is required')
@@ -29,7 +25,7 @@ class Signup extends React.Component {
                         email: fields.email,
                         password: fields.password
                     }
-                    axios.post('/signup', userObj).then(response => {
+                    axios.post('/auth/login', userObj).then(response => {
                         window.location = response.request.responseURL; // Redirect to dashboard if registering was successful
                     });
                 }}
@@ -39,11 +35,6 @@ class Signup extends React.Component {
                             <label htmlFor="username">Username</label>
                             <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
                             <ErrorMessage name="username" component="div" className="invalid-feedback" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                            <ErrorMessage name="email" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
@@ -61,5 +52,4 @@ class Signup extends React.Component {
     }
 }
 
-export default Signup; 
-
+export default Login; 

@@ -43,7 +43,7 @@ module.exports = (app, passport) => {
     });
 
 
-    app.post('/login', passport.authenticate('login', {
+    app.post('/auth/login', passport.authenticate('login', {
         successRedirect: '/dashboard',
         failureRedirect: '/',
         failureFlash : true 
@@ -52,7 +52,7 @@ module.exports = (app, passport) => {
     // =====================================
     // LOGOUT ==============================
     // =====================================
-    app.get('/logout', function(req, res) {
+    app.get('/auth/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
@@ -60,7 +60,7 @@ module.exports = (app, passport) => {
     // =====================================
     // SIGNUP ==============================
     // =====================================
-    app.post('/signup', passport.authenticate('signup', {
+    app.post('/auth/signup', passport.authenticate('signup', {
         successRedirect: '/dashboard',
         failureRedirect: '/',
         failureFlash : true 

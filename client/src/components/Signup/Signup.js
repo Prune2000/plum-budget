@@ -1,14 +1,14 @@
 import React from 'react';
-import LoginForm from '../LoginForm/LoginForm';
+import SignupForm from '../SignupForm/SignupForm';
 
 
-class Login extends React.Component {
+class Signup extends React.Component {
 
   render() {
     return (
       <div className="App">
         <div className="top">
-          <LoginForm />
+          <SignupForm />
         </div>
       </div>
       
@@ -16,4 +16,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Signup;
