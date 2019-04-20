@@ -32,7 +32,7 @@ module.exports = (app, passport) => {
     });
     
     passport.deserializeUser((id, done) => {
-        Users.findById(id, function(err, user) {
+        Users.findById(id, function(err, user) { 
             done(err, user);
         });
     });
@@ -153,7 +153,10 @@ module.exports = (app, passport) => {
       (req, username, password, done) => {
         findOrCreateUser = () =>{
           // find a user in Mongo with provided username
-          Users.findOne({'username':username}, (err, user) => {
+          Users.findOne({
+              'username': username,
+              'email': req.body.email
+            }, (err, user) => {
             // In case of any error return
             if (err){
               console.log('Error in SignUp: '+err);
@@ -164,7 +167,8 @@ module.exports = (app, passport) => {
               console.log('User already exists');
               return done(null, false, 
                  req.flash('message','User Already Exists'));
-            } else {
+            } 
+            else {
               // if there is no user with that email
               // create the user
               var newUser = new Users();

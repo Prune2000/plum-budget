@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import getAppStore from '../../store/store';
 import { getIncomes } from '../../actions/incomes';
 import { getExpenses } from '../../actions/expenses';
+import { getUser} from '../../actions/user';
 
 const store = getAppStore();
 
@@ -30,9 +31,12 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    this.getUser();
+    
     store.dispatch(getIncomes());
     store.dispatch(getExpenses());
-    this.getUser();
+    store.dispatch(getUser());
+    
   }
 
   updateUser (userObject) {

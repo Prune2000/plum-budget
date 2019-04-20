@@ -4,23 +4,29 @@ import './Header.css';
 import IncomeTotal from '../IncomeTotal/IncomeTotal';
 import ExpenseTotal from '../ExpenseTotal/ExpenseTotal';
 
+
 const Header = (props) => (
         <div className="top">
-            <div className="budget">
-                <div className="budget__title">
-                    Available Budget in <span className="budget__title--month">{props.month}</span>:
-                </div>
-                
-                <div className="budget__value">{props.total}</div>
-                
-                <IncomeTotal />
-                
-                <ExpenseTotal />
-            </div>
+          <div className="user-info">
+            <p>{props.user.username}</p>
+          </div>
+
+          <div className="budget">
+              <div className="budget__title">
+                  Available Budget in <span className="budget__title--month">{props.month}</span>:
+              </div>
+              
+              <div className="budget__value">{props.total}</div>
+              
+              <IncomeTotal />
+              
+              <ExpenseTotal />
+          </div>
         </div>
       );
 
 const mapStateToProps = (state) => {
+
   // Find the month
   let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   let date = new Date();
@@ -71,7 +77,8 @@ const mapStateToProps = (state) => {
 
   return {
     month: month,
-    total: formatNumber(budgetTotal, calcType(budgetTotal))
+    total: formatNumber(budgetTotal, calcType(budgetTotal)),
+    user: state.user
   };
 }
      
