@@ -66,28 +66,28 @@ class Dashboard extends Component {
     } else {
       return (
         <Provider store={store}>
-        <div className="App">
-          <Header />
-          
-            <AddBudget />
-
-            <div className="container clearfix">
-              <div className="income">
-                <h2 className="income__title">Incomes</h2>
-                                
-                <IncomeList />
-
-              </div>
+          <div className="App">
+            <Header />
             
+              <AddBudget />
 
-              <div className="expenses">
-                <h2 className="expenses__title">Expenses</h2>
+              <div className="container clearfix">
+                <div className="income">
+                  <h2 className="income__title">Incomes</h2>
+                                  
+                  <IncomeList />
 
-                <ExpenseList />
+                </div>
               
+
+                <div className="expenses">
+                  <h2 className="expenses__title">Expenses</h2>
+
+                  <ExpenseList />
+                
+                </div>
               </div>
-            </div>
-        </div>
+          </div>
         </Provider>
         
       );

@@ -9,10 +9,13 @@ export default class Register extends React.Component {
  
                     <input type="text" name="username" placeholder="Username" autoFocus required/>
                     <br />
- 
-                    <input type="password" name="password" placeholder="password" required />
+
+                    <input type="email" name="email" placeholder="Email" autoFocus required/>
                     <br />
  
+                    <input type="password" name="password" placeholder="Password" required />
+                    <br />
+
                     <button>Register</button>
                 </form>
             </div>

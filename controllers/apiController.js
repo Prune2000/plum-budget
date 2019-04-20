@@ -170,6 +170,7 @@ module.exports = (app, passport) => {
               var newUser = new Users();
               // set the user's local credentials
               newUser.username = username;
+              newUser.email = req.body.email;
               newUser.password = createHash(password);
      
               // save the user

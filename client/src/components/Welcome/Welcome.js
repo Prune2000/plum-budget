@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Signup from '../Register/Signup';
 
 
 class Welcome extends React.Component {
@@ -12,12 +12,12 @@ class Welcome extends React.Component {
       <div className="App">
 
         <div className="top">
-          <Register />
+          <Signup />
         </div>
 
-      <div>
-        <Login />
-      </div>
+        <div>
+          <Login />
+        </div>
 
       </div>
       
