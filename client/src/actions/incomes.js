@@ -7,7 +7,8 @@ const _addIncome = (income) => ({
  
 export const addIncome = (incomeData = {
     userID: '',
-    username: '',
+    year: '',
+    month: '',
     type: '',
     description: '',
     price: ''
@@ -15,7 +16,8 @@ export const addIncome = (incomeData = {
     return (dispatch) => {
         const income = {
             userID: incomeData.userID,
-            username: incomeData.username,
+            year: incomeData.year,
+            month: incomeData.month,
             type: incomeData.type,
             description: incomeData.description,
             price: incomeData.price,

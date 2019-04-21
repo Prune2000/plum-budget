@@ -7,7 +7,8 @@ const _addExpense = (expense) => ({
  
 export const addExpense = (expenseData = {
     userID: '',
-    username: '',
+    year: '',
+    month: '',
     type: '',
     description: '',
     price: ''
@@ -15,7 +16,8 @@ export const addExpense = (expenseData = {
     return (dispatch) => {
         const expense = {
             userID: expenseData.userID,
-            username: expenseData.username,
+            year: expenseData.year,
+            month: expenseData.month,
             type: expenseData.type,
             description: expenseData.description,
             price: expenseData.price,

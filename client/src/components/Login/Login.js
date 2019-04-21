@@ -1,16 +1,17 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 
+import './Login.css';
 
 class Login extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="top">
-          <LoginForm />
+
+        <div>
+          <LoginForm className="contact100-form"/>
         </div>
-      </div>
+
       
     );
   }

@@ -14,7 +14,8 @@ export default class Form extends React.Component {
 
     this.state = {
       userID: props.budget ? props.budget.userID: '',
-      username: props.budget ? props.budget.username: '',
+      year: props.budget ? props.budget.year: '',
+      month: props.budget ? props.budget.month: '',
       type: props.budget ? props.budget.type: 'inc',
       description: props.budget ? props.budget.description: '',
       price: props.budget ? props.budget.price: '',
@@ -24,21 +25,28 @@ export default class Form extends React.Component {
   }
 
   componentDidMount() {
-    this.getUser()
+    this.getUser();
+
+    // Add the date to the state
+    let date = new Date();
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    let month = months[date.getMonth() - 1];
+    this.setState({
+      year: date.getFullYear(),
+      month: month
+    })
   }
 
   getUser() {
     axios.get('/dashboard').then(res => {
       if (res.data._id) {
         this.setState({
-          userID: res.data._id,
-          username: res.data.username
+          userID: res.data._id
         });
 
       } else {
         this.setState({
-          userID: '',
-          username: ''
+          userID: ''
         })
       }
     })
@@ -73,7 +81,8 @@ export default class Form extends React.Component {
         this.props.onSubmitBudget(
             {
               userID: this.state.userID,
-              username: this.state.username,
+              year: this.state.year,
+              month: this.state.month,
               type: this.state.type,
               description: this.state.description,
               price: this.state.price

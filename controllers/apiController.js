@@ -85,7 +85,6 @@ module.exports = (app, passport) => {
             type: 'inc'
         }, (err, incomes) => {
             if (err) throw err;
-            console.log(incomes);
             res.send(JSON.stringify(incomes));
         });
     });
@@ -119,9 +118,11 @@ module.exports = (app, passport) => {
         //console.log(req.body);
         
         if (req.body.type == 'inc') {
+            console.log(req.body);
             let newIncome = Incomes({
                 userID: req.body.userID,
-                username: req.body.username,
+                year: req.body.year,
+                month: req.body.month,
                 type: req.body.type,
                 description: req.body.description,
                 price: req.body.price
@@ -134,7 +135,8 @@ module.exports = (app, passport) => {
         else if (req.body.type == 'exp') {
             let newExpense = Expenses({
                 userID: req.body.userID,
-                username: req.body.username,
+                year: req.body.year,
+                month: req.body.month,
                 type: req.body.type,
                 description: req.body.description,
                 price: req.body.price
