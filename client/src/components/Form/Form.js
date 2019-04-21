@@ -70,8 +70,8 @@ export default class Form extends React.Component {
 
     // Clear the fields of the form after submission but keeps the current selected type
     const clearFields = () => {
-      this.state.description = '';
-      this.state.price = ''
+      this.setState.description = '';
+      this.setState.price = '';
     }
 
     if (!this.state.type || !this.state.description || !this.state.price) {

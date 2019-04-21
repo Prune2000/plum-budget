@@ -7,11 +7,9 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const morgan = require('morgan');
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
 
 const config = require('./config');
 const phraseSession = require('./config/session');
-const apiController = require('./controllers/apiController');
 
 const port = process.env.PORT || 5000;
 

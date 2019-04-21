@@ -19,7 +19,12 @@ const store = getAppStore();
 class Dashboard extends Component {
   constructor(props) {
     super(props);
+    let date = new Date();
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    let month = months[date.getMonth() - 1];
     this.state = { 
+      year: date.getFullYear(),
+      month: month,
       loggedIn: false,
       username: null,
       redirectTo: null
@@ -30,13 +35,12 @@ class Dashboard extends Component {
     this.updateUser = this.updateUser.bind(this)
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.getUser();
-    
+    store.dispatch(getUser());
+
     store.dispatch(getIncomes());
     store.dispatch(getExpenses());
-    store.dispatch(getUser());
-    
   }
 
   updateUser (userObject) {
@@ -83,7 +87,6 @@ class Dashboard extends Component {
 
                 </div>
               
-
                 <div className="expenses">
                   <h2 className="expenses__title">Expenses</h2>
 

@@ -29,30 +29,19 @@ const mapStateToProps = (state) => {
         return incomeArray.push(Number(income.price)); // the prices are stored as strings
     });
     let incomeTotal = arrSum(incomeArray);
-
-    // Calculate the complete total
-    let budgetTotal = (incomeTotal - expenseTotal);
-    const calcType = (budget) => {
-        let type;
-        if (budget >= 0) {
-            return type = 'inc'
-        } else {
-            return type = 'exp'
-        }
-    };
-
+    
     // Calculate the percentage of expenses
     const calcPercentage = (inc, exp) => {
         if (inc > 0 && inc > exp) {
-            let percentageTotal;
-            return percentageTotal = `${Math.round((exp / inc) * 100)}%`
+            let percentageTotal = `${Math.round((exp / inc) * 100)}%`;
+            return percentageTotal;
         };
     }
 
     // Format the total
-    const formatNumber = (num, type) => {
+    const formatNumber = num => {
 
-        let numSplit, int, dec, sign;
+        let numSplit, int, dec;
 
         num = Math.abs(num);
         num = num.toFixed(2); // always put 2 decimals and also rounds it. Ex: 2000 becomes 2000.00, 46.4589 becomes 46.46
@@ -62,7 +51,7 @@ const mapStateToProps = (state) => {
             int = int.substr(0, int.length - 3) + ',' + int.substr(int.length - 3, 3); // input 2310, output 2,310
         }
         dec = numSplit[1];
-        return (type === 'exp' ? sign = '-' : sign = '+') + ' ' + int + '.' + dec;  
+        return '- ' + int + '.' + dec;  
     };
 
     return {

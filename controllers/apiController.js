@@ -229,7 +229,6 @@ module.exports = (app, passport) => {
             }
             // User and password both match, return user from 
             // done method which will be treated like success
-            console.log(user);
             return done(null, user);
             }
         );
