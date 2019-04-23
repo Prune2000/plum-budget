@@ -13,7 +13,7 @@ const Header = (props) => (
 
           <div className="budget">
               <div className="budget__title">
-                  Available Budget in <span className="budget__title--month">{props.month}</span>:
+                  Available Budget in <span className="budget__title--month">Prout</span>:
               </div>
               
               <div className="budget__value">{props.total}</div>
@@ -26,11 +26,6 @@ const Header = (props) => (
       );
 
 const mapStateToProps = (state) => {
-
-  // Find the month
-  let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-  let date = new Date();
-  let month = months[date.getMonth() - 1];
 
   // Calculate the total expenses
   let expenseArray = [];
@@ -75,9 +70,10 @@ const mapStateToProps = (state) => {
       dec = numSplit[1];
       return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;  
   };
+  console.log(state.filter);
 
   return {
-    month: month,
+    month: state.filter[0].month,
     total: formatNumber(budgetTotal, calcType(budgetTotal)),
     user: state.user
   };

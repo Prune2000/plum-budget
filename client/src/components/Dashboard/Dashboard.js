@@ -13,18 +13,14 @@ import getAppStore from '../../store/store';
 import { getIncomes } from '../../actions/incomes';
 import { getExpenses } from '../../actions/expenses';
 import { getUser} from '../../actions/user';
+import { getCurrentYear, getCurrentMonth } from '../../actions/filters';
 
 const store = getAppStore();
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    let date = new Date();
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    let month = months[date.getMonth() - 1];
-    this.state = { 
-      year: date.getFullYear(),
-      month: month,
+    this.state = {
       loggedIn: false,
       username: null,
       redirectTo: null
@@ -38,9 +34,9 @@ class Dashboard extends Component {
   async componentDidMount() {
     this.getUser();
     store.dispatch(getUser());
-
     store.dispatch(getIncomes());
     store.dispatch(getExpenses());
+    console.log(this.state);
   }
 
   updateUser (userObject) {
