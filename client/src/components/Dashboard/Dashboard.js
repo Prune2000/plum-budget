@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import IncomeList from '../IncomeList/IncomeList';
 import ExpenseList from '../ExpenseList/ExpenseList';
 import AddBudget from '../AddBudget/AddBudget';
+import SelectDate from '../SelectDate/SelectDate';
 
 import { connect } from 'react-redux';
 import getAppStore from '../../store/store';
@@ -26,33 +27,33 @@ class Dashboard extends Component {
       redirectTo: null
     }
 
-    this.getUser = this.getUser.bind(this)
+    this.checkUser = this.checkUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     this.updateUser = this.updateUser.bind(this)
   }
 
   async componentDidMount() {
-    this.getUser();
+    this.checkUser();
     store.dispatch(getUser());
     store.dispatch(getIncomes());
     store.dispatch(getExpenses());
-    console.log(this.state);
   }
 
   updateUser (userObject) {
     this.setState(userObject)
   }
 
-  getUser() {
+  checkUser() {
     axios.get('/dashboard').then(res => {
       console.log('Get user response: ')
       console.log(res.data.username)
+      console.log(res.data._id)
       if (res.data._id) {
         this.setState({
           loggedIn: true,
           username: res.data.username
         });
-
+        console.log(this.state);
       } else {
         console.log('Get user: no user');
         this.setState({
@@ -62,6 +63,7 @@ class Dashboard extends Component {
         })
       }
     })
+    console.log(this.state);
   }
 
   render() {
@@ -74,6 +76,8 @@ class Dashboard extends Component {
             <Header />
             
               <AddBudget />
+
+              <SelectDate />
 
               <div className="container clearfix">
                 <div className="income">

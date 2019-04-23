@@ -13,7 +13,7 @@ const Header = (props) => (
 
           <div className="budget">
               <div className="budget__title">
-                  Available Budget in <span className="budget__title--month">Prout</span>:
+                  Available Budget in <span className="budget__title--month">{props.month}</span>:
               </div>
               
               <div className="budget__value">{props.total}</div>
@@ -71,9 +71,9 @@ const mapStateToProps = (state) => {
       return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;  
   };
   console.log(state.filter);
-
+  let arr = state.filter;
   return {
-    month: state.filter[0].month,
+    month: state.filter[arr.length - 1].month,
     total: formatNumber(budgetTotal, calcType(budgetTotal)),
     user: state.user
   };

@@ -12,23 +12,35 @@ export default (state = filtersReducerDefaultState, action) => {
     switch (action.type) {
         case 'CURRENT_YEAR':
             return [
-                state.year,
-                action.year
+                ...state,
+                {
+                    year: action.year,
+                    month: state.month
+                }
             ];
         case 'CURRENT_MONTH':
             return [
-                state.month,
-                action.month
+                ...state,
+                {
+                    year: state.year,
+                    month: action.month
+                }
             ];
         case 'CHANGE_YEAR':
             return [
-                state.year,
-                action.year
+                ...state,
+                {
+                    year: action.year,
+                    month: state.month
+                }
             ];
         case 'CHANGE_MONTH':
             return [
-                state.month,
-                action.month
+                ...state,
+                {
+                    year: date.getFullYear(),
+                    month: action.month
+                }
             ];
         default:
             return state;
