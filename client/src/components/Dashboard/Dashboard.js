@@ -14,7 +14,7 @@ import getAppStore from '../../store/store';
 import { getIncomes } from '../../actions/incomes';
 import { getExpenses } from '../../actions/expenses';
 import { getUser} from '../../actions/user';
-import { getCurrentYear, getCurrentMonth } from '../../actions/filters';
+import { getCurrentMonth } from '../../actions/month';
 
 const store = getAppStore();
 

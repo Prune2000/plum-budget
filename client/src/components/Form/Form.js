@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import './Form.css';
 
-export default class Form extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.onTypeChange = this.onTypeChange.bind(this);
@@ -12,10 +13,13 @@ export default class Form extends React.Component {
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
 
+    
+    let date = new Date();
+
     this.state = {
       userID: props.budget ? props.budget.userID: '',
-      year: props.budget ? props.budget.year: '',
-      month: props.budget ? props.budget.month: '',
+      year: props.budget ? props.budget.year: date.getFullYear(),
+      month: props.budget ? props.budget.month: this.props.month,
       type: props.budget ? props.budget.type: 'inc',
       description: props.budget ? props.budget.description: '',
       price: props.budget ? props.budget.price: '',
@@ -26,15 +30,6 @@ export default class Form extends React.Component {
 
   componentDidMount() {
     this.getUser();
-
-    // Add the date to the state
-    let date = new Date();
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    let month = months[date.getMonth() - 1];
-    this.setState({
-      year: date.getFullYear(),
-      month: month
-    })
   }
 
   getUser() {
@@ -125,3 +120,13 @@ export default class Form extends React.Component {
     );
   }
 };
+
+const mapStateToProps = (state) => {
+
+  let arr = state.month;
+  return {
+    month: state.month[arr.length - 1].month
+  };
+}
+
+export default connect(mapStateToProps)(Form);

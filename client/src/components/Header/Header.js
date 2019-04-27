@@ -70,10 +70,10 @@ const mapStateToProps = (state) => {
       dec = numSplit[1];
       return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;  
   };
-  console.log(state.filter);
-  let arr = state.filter;
+  console.log(state.month);
+  let arr = state.month;
   return {
-    month: state.filter[arr.length - 1].month,
+    month: state.month[arr.length - 1].month,
     total: formatNumber(budgetTotal, calcType(budgetTotal)),
     user: state.user
   };
