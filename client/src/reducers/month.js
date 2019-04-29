@@ -1,7 +1,7 @@
 // Find the month
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 let date = new Date();
-let month = months[date.getMonth() - 1];
+let month = months[date.getMonth()];
 
 const filtersReducerDefaultState = [{
     month: month

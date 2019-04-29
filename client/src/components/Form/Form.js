@@ -19,7 +19,6 @@ class Form extends React.Component {
     this.state = {
       userID: props.budget ? props.budget.userID: '',
       year: props.budget ? props.budget.year: date.getFullYear(),
-      month: props.budget ? props.budget.month: this.props.month,
       type: props.budget ? props.budget.type: 'inc',
       description: props.budget ? props.budget.description: '',
       price: props.budget ? props.budget.price: '',
@@ -77,7 +76,7 @@ class Form extends React.Component {
             {
               userID: this.state.userID,
               year: this.state.year,
-              month: this.state.month,
+              month: this.props.month,
               type: this.state.type,
               description: this.state.description,
               price: this.state.price
