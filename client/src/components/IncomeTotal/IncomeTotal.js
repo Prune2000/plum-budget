@@ -15,14 +15,16 @@ const IncomeTotal = (props) => (
 
 const mapStateToProps = (state) => {
 
-    // Calculate the total income
+    let arr = state.month;
+
+    // Calculate the total incomes for the selected month
+    let incomePerMonth = state.income.filter(income => income.month === state.month[arr.length - 1].month);
     let incomeArray = [];
-    state.income.map(income => {
-        return incomeArray.push(Number(income.price)); // the prices are stored as strings
+    incomePerMonth.map(income => {
+        return incomeArray.push(Number(income.price)); // the prices are stored as strings so need to convert them
     });
     const arrSum = arr => arr.reduce((a,b) => a + b, 0);
     let incomeTotal = arrSum(incomeArray);
-    
 
     // Format the total income
     const formatNumber = num => {

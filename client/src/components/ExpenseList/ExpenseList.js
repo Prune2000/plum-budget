@@ -13,9 +13,10 @@ const ExpenseList = (props) => (
 );
  
 const mapStateToProps = (state) => {
-    console.log(state);
+    let arr = state.month;
     return {
-        expenses: state.expense
+        expenses: state.expense.filter(expense => expense.month === state.month[arr.length - 1].month),
+        month: state.month[arr.length - 1].month
     };
 }
  

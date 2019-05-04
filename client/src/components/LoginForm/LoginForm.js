@@ -13,10 +13,8 @@ class Login extends React.Component {
                 }}
                 validationSchema={Yup.object().shape({
                     username: Yup.string()
-                        .min(5, 'Username must be at least 5 characters')
-                        .required('First Name is required'),
+                        .required('Username is required'),
                     password: Yup.string()
-                        .min(6, 'Password must be at least 6 characters')
                         .required('Password is required')
                 })}
                 onSubmit={fields => {
@@ -42,8 +40,7 @@ class Login extends React.Component {
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary mr-2">Register</button>
-                            <button type="reset" className="btn btn-secondary">Reset</button>
+                            <button type="submit" className="btn btn-primary mr-2">Login</button>
                         </div>
                     </Form>
                 )}
