@@ -1,40 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import IncomeTotal from '../IncomeTotal/IncomeTotal';
-import ExpenseTotal from '../ExpenseTotal/ExpenseTotal';
-import YearlyBudget from '../YearlyBudget/YearlyBudget';
 
 
-const Header = (props) => (
-        <div className="top">
-          <div className="user-info">
-            <p>{props.user.username}</p>
-          </div>
-
-          <div className="budget">
+const YearlyBudget = (props) => (
+          <div className="budget__year">
               <div className="budget__title">
-                  Available Budget in <span className="budget__title--month">{props.month}</span>:
+                  Total Available Budget in <span className="budget__title--month">{props.year}</span>:
               </div>
               
               <div className="budget__value">{props.total}</div>
-              
-              <IncomeTotal />
-              
-              <ExpenseTotal />
           </div>
-
-          <div>
-            <YearlyBudget />
-          </div>
-        </div>
       );
 
 const mapStateToProps = (state) => {
 
-  let arr = state.month;
+    let date = new Date();
+    
+    let year = date.getFullYear();  
 
-  // Calculate the total expenses for the selected month
-  let expensePerMonth = state.expense.filter(expense => expense.month === state.month[arr.length - 1].month);
+  // Calculate the total expenses for the year
+  let expensePerMonth = state.expense.filter(expense => Number(expense.year) === year);
   let expenseArray = [];
   expensePerMonth.map(expense => {
       return expenseArray.push(Number(expense.price)); // the prices are stored as strings so need to convert them
@@ -43,7 +28,7 @@ const mapStateToProps = (state) => {
   let expenseTotal = arrSum(expenseArray);
 
   // Calculate the total incomes for the selected month
-  let incomePerMonth = state.income.filter(income => income.month === state.month[arr.length - 1].month);
+  let incomePerMonth = state.income.filter(income => Number(income.year) === year);
   let incomeArray = [];
   incomePerMonth.map(income => {
       return incomeArray.push(Number(income.price)); // the prices are stored as strings so need to convert them
@@ -80,10 +65,10 @@ const mapStateToProps = (state) => {
   };
 
   return {
-    month: state.month[arr.length - 1].month,
+    year: year,
     total: formatNumber(budgetTotal, calcType(budgetTotal)),
     user: state.user
   };
 }
      
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(YearlyBudget);

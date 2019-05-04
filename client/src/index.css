@@ -35,6 +35,17 @@ code {
   color: #fff;
 }
 
+.budget__year {
+  float: left;
+  margin-left: 20px;
+}
+.budget__year .budget__title {
+  font-size: 14px;
+}
+.budget__year .budget__value {
+  font-size: 30px;
+}
+
 .budget__title {
   font-size: 18px;
   text-align: center;
