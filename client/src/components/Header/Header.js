@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Header.css';
 import IncomeTotal from '../IncomeTotal/IncomeTotal';
 import ExpenseTotal from '../ExpenseTotal/ExpenseTotal';
 

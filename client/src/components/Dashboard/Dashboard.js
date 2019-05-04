@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import './Dashboard.css';
 import Header from '../Header/Header';
 import IncomeList from '../IncomeList/IncomeList';
 import ExpenseList from '../ExpenseList/ExpenseList';

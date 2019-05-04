@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './IncomeTotal.css';
 
 const IncomeTotal = (props) => (
 

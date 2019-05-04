@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import './Form.css';
 
 class Form extends React.Component {
   constructor(props) {
