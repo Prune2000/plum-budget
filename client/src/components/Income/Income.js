@@ -4,7 +4,7 @@ import trash from '../../img/trash.svg';
 import { removeIncome } from '../../actions/incomes';
 
 const Income = ({_id, type, description, price, dispatch}) => (
-    <div key={_id}>
+    <div className="full--list" key={_id}>
         <div className="item__description">{description}</div> 
         <div className="right clearfix">  
             <div className="item__delete"> 

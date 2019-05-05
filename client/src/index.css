@@ -311,6 +311,10 @@ code {
     padding-bottom: 100px;
 }
 
+.full--list {
+  margin-top: -10px;
+}
+
 .income {
     float: left;
     width: 475px;
@@ -333,7 +337,8 @@ h2 {
 .expenses__title { color: #FF5049; }
 
 .item {
-    padding: 13px;
+    padding: 20px;
+    margin-bottom: 10px;
     border-bottom: 1px solid #e7e7e7;
 }
 
@@ -398,15 +403,5 @@ h2 {
 .item:hover .item__value { transform: translateX(-20px); }
 .item:hover .item__percentage { transform: translateX(-20px); }
 
-
-.unpaid {
-    background-color: #FFDAD9 !important;
-    cursor: pointer;
-    color: #FF5049;
-
-}
-
-.unpaid .item__percentage { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
-.unpaid:hover .item__description { font-weight: 900; }
 
 
