@@ -20,10 +20,72 @@ code {
 
 .top {
   height: 400px;
+  padding-top: 50px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(back.svg);
   background-size: cover;
   background-position: center;
   position: relative;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.top__welcome {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(orchard.jpg);
+  background-size: cover;
+  position: relative;
+  font-family: 'Montserrat Alternates', sans-serif;
+  align-content: center;
+}
+
+.top__welcome h1 {
+  margin-top: 0;
+  padding-top: 100px;
+}
+
+.top__menu {
+  position: relative;
+  float: right;
+  list-style:none;
+  margin: 15px 15px 0 0;
+}
+
+.top__menu ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.top__menu ul li {
+  float: left;
+  color: white;
+}
+
+.top__menu ul li a {
+  diplay: block;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 120%;
+  color: white;
+  transition: 0.5s;
+}
+
+.top__menu ul li a:hover {
+  color: #643155;
+}
+
+.top__logo {
+  margin: auto;
+  width: 50%;
+  padding-top: 50px;
+}
+
+.top__logo img {
+  height: 250px;
+}
+
+.top__logo p {
+  font-size: 150%;
+  color: white;
 }
 
 .budget {
