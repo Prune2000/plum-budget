@@ -28,7 +28,7 @@ class SelectDate extends React.Component {
       
       <div className="add__container">
         <form className="add__form" onSubmit={this.onSubmit}>
-          <select className="add__type" name="month" onChange={this.onMonthChange}>
+          <select className="change__date" name="month" onChange={this.onMonthChange}>
               <option value="January">January</option>
               <option value="February">February</option>
               <option value="March">March</option>
@@ -42,7 +42,7 @@ class SelectDate extends React.Component {
               <option value="November">November</option>
               <option value="December">December</option>
           </select>
-          <button type="submit" className="add__btn">Submit</button>
+          <button type="submit" className="add__btn">Select</button>
         </form>
       </div>
         

@@ -25,7 +25,6 @@ code {
   background-size: cover;
   background-position: center;
   position: relative;
-  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .top__welcome {
@@ -70,7 +69,7 @@ code {
 }
 
 .top__menu ul li a:hover {
-  color: #643155;
+  color: #4c9ce7;
 }
 
 .top__logo {
@@ -228,6 +227,10 @@ code {
   font-size: 11px;
   padding: 3px 0;
   margin-left: 10px;
+}
+
+.budget__selectDate {
+
 }
 
 

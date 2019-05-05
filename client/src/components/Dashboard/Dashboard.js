@@ -75,7 +75,10 @@ class Dashboard extends Component {
             
               <AddBudget />
 
-              <SelectDate />
+              <div className="budget__selectDate">
+                <SelectDate />
+              </div>
+              
 
               <div className="container clearfix">
                 <div className="income">

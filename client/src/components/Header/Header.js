@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import IncomeTotal from '../IncomeTotal/IncomeTotal';
 import ExpenseTotal from '../ExpenseTotal/ExpenseTotal';
 import YearlyBudget from '../YearlyBudget/YearlyBudget';
+import SelectDate from '../SelectDate/SelectDate';
 
 
 const Header = (props) => (
@@ -26,6 +27,7 @@ const Header = (props) => (
           <div>
             <YearlyBudget />
           </div>
+
         </div>
       );
 
