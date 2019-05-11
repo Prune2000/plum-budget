@@ -20,7 +20,7 @@ class Welcome extends React.Component {
           </div>
 
           <div className="top__logo">
-            <img src={require('./plum2.png')} />  
+            <img src={require('./plum2.png')} alt="family in orchard" />  
             <p>Plum Budget is a secure and confidential budget app. No data sold, no 3rd parties, no ads. Create an account and start tracking your spending now!</p>
           </div>
 
