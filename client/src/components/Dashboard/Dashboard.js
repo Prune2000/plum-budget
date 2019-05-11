@@ -13,6 +13,7 @@ import getAppStore from '../../store/store';
 import { getIncomes } from '../../actions/incomes';
 import { getExpenses } from '../../actions/expenses';
 import { getUser} from '../../actions/user';
+import SidebarMenu from '../SidebarMenu/SidebarMenu';
 
 const store = getAppStore();
 
@@ -71,6 +72,8 @@ class Dashboard extends Component {
       return (
         <Provider store={store}>
           <div className="App">
+            <SidebarMenu />
+
             <Header />
             
               <AddBudget />
