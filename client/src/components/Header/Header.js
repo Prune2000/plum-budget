@@ -2,14 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import IncomeTotal from '../IncomeTotal/IncomeTotal';
 import ExpenseTotal from '../ExpenseTotal/ExpenseTotal';
-import YearlyBudget from '../YearlyBudget/YearlyBudget';
 
 
 const Header = (props) => (
         <div className="top">
-          <div className="user-info">
-            <p>{props.user.username}</p>
-          </div>
 
           <div className="budget">
               <div className="budget__title">
@@ -21,10 +17,6 @@ const Header = (props) => (
               <IncomeTotal />
               
               <ExpenseTotal />
-          </div>
-
-          <div>
-            <YearlyBudget />
           </div>
 
         </div>
