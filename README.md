@@ -2,6 +2,8 @@
 
 ![Screenrecord](https://media.giphy.com/media/PnJgIL2lCkodGytTAl/giphy.gif)
 
+*How it looks so far. Lots of styling needed and many new features coming up!*
+
 **The goal is to build a secure and confidential budget app.** Too many budget apps will sell financial information to 3rd parties as well as track users to get better insights on their shopping habits. This app aims to give a free and confidential app to track your daily finances.
 
 Plum budget is an open-source project, so feel free to help! Contact me on twitter or by email if you need help!
