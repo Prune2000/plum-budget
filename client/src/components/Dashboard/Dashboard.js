@@ -13,7 +13,7 @@ import getAppStore from '../../store/store';
 import { getIncomes } from '../../actions/incomes';
 import { getExpenses } from '../../actions/expenses';
 import { getUser} from '../../actions/user';
-import SidebarMenu from '../SidebarMenu/SidebarMenu';
+import { slide as Menu } from 'react-burger-menu'
 
 const store = getAppStore();
 
@@ -65,6 +65,10 @@ class Dashboard extends Component {
     console.log(this.state);
   }
 
+  showSettings (event) {
+    event.preventDefault();
+  }
+
   render() {
     if (this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
@@ -72,7 +76,13 @@ class Dashboard extends Component {
       return (
         <Provider store={store}>
           <div className="App">
-            <SidebarMenu />
+
+            <Menu left isOpen={ true }>
+                <a id="home" className="menu-item" href="/">Home</a>
+                <a id="about" className="menu-item" href="/about">About</a>
+                <a id="contact" className="menu-item" href="/contact">Contact</a>
+                <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+            </Menu>
 
             <Header />
             
