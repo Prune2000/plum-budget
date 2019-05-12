@@ -1,6 +1,9 @@
-import { slide as Menu } from 'react-burger-menu'
+import React from 'react';
+import { connect } from 'react-redux';
+import { slide as Menu } from 'react-burger-menu';
 
-class Example extends React.Component {
+class MenuSide extends React.Component {
+
   showSettings (event) {
     event.preventDefault();
   }
@@ -16,3 +19,5 @@ class Example extends React.Component {
     );
   }
 }
+
+export default connect()(MenuSide);

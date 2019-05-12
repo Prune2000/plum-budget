@@ -13,7 +13,7 @@ import getAppStore from '../../store/store';
 import { getIncomes } from '../../actions/incomes';
 import { getExpenses } from '../../actions/expenses';
 import { getUser} from '../../actions/user';
-import { slide as Menu } from 'react-burger-menu'
+import MenuSide from '../MenuSide/MenuSide';
 
 const store = getAppStore();
 
@@ -77,12 +77,7 @@ class Dashboard extends Component {
         <Provider store={store}>
           <div className="App">
 
-            <Menu left isOpen={ true }>
-                <a id="home" className="menu-item" href="/">Home</a>
-                <a id="about" className="menu-item" href="/about">About</a>
-                <a id="contact" className="menu-item" href="/contact">Contact</a>
-                <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-            </Menu>
+            <MenuSide />
 
             <Header />
             
@@ -115,5 +110,6 @@ class Dashboard extends Component {
     }
   }
 }
+
 
 export default connect()(Dashboard);
