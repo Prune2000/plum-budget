@@ -437,9 +437,10 @@ h2 {
 Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
+
 .bm-menu-wrap {
   position: fixed;
-  height: auto;
+  height: 100%;
 }
 
 /* General sidebar styles */
@@ -448,6 +449,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
+
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
@@ -472,4 +474,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .menu__total {
   color: white;
+}
+
+.menu-tweaks-perso {
+  overflow: hidden;
 }
