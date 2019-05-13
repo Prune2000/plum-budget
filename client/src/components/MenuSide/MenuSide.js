@@ -1,11 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { slide as Menu } from 'react-burger-menu';
+
 import YearlyBudget from '../YearlyBudget/YearlyBudget';
 import UserInfo from '../UserInfo/UserInfo';
 import SelectDate from '../SelectDate/SelectDate';
 
 class MenuSide extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(e) {
+    e.preventDefault();
+    axios.get('/auth/logout').then(response => {
+      window.location = response.request.responseURL; // Redirect to homepage if logout was successful
+    });
+  }
 
   render () {
     return (
@@ -20,6 +34,10 @@ class MenuSide extends React.Component {
         
         <div className="sidemenu_container">
           <SelectDate />
+        </div>
+
+        <div className="sidemenu_container">
+          <button onClick={this.onClick}>Logout</button>
         </div>
 
       </Menu>
