@@ -75,29 +75,28 @@ class Dashboard extends Component {
       return (
         <Provider store={store}>
           <div className="App">
+            <div className="dashboard">
 
-            <MenuSide />
+              <MenuSide />
 
-            <Header />
-            
-              <AddBudget />
+              <Header />
               
+              <AddBudget />
+                
 
               <div className="container clearfix">
                 <div className="income">
-                  <h2 className="income__title">Incomes</h2>
-                                  
+                  <h2 className="income__title">Incomes</h2>  
                   <IncomeList />
-
                 </div>
               
                 <div className="expenses">
                   <h2 className="expenses__title">Expenses</h2>
-
                   <ExpenseList />
-                
                 </div>
               </div>
+
+            </div>
           </div>
         </Provider>
         
