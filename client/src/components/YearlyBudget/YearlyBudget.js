@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const YearlyBudget = (props) => (
           <div className="budget__year">
               <div className="budget__title">
-                  Total Available Budget in <span className="budget__title--month">{props.year}</span>:
+                  <p>Your total budget in <span className="budget__title--month">{props.year}</span>:</p>
               </div>
               
               <div className="budget__value">{props.total}</div>

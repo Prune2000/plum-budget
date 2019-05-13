@@ -27,7 +27,7 @@ class SelectDate extends React.Component {
     return (
       
       <div className="add__container">
-        <p>Select a new month: </p>
+        <p>Select another month: </p>
         <form className="add__form" onSubmit={this.onSubmit}>
           <select className="change__date" name="month" onChange={this.onMonthChange}>
               <option value="January">January</option>
