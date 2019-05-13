@@ -6,7 +6,6 @@ import Header from '../Header/Header';
 import IncomeList from '../IncomeList/IncomeList';
 import ExpenseList from '../ExpenseList/ExpenseList';
 import AddBudget from '../AddBudget/AddBudget';
-import SelectDate from '../SelectDate/SelectDate';
 
 import { connect } from 'react-redux';
 import getAppStore from '../../store/store';

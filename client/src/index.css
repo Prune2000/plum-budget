@@ -87,6 +87,17 @@ code {
   color: white;
 }
 
+/**********************************************
+*** SIDE MENU
+**********************************************/
+.sidemenu_container {
+  margin: 50px 0;
+}
+
+/**********************************************
+*** BUDGET
+**********************************************/
+
 .budget {
   position: absolute;
   width: 350px;
@@ -244,6 +255,10 @@ code {
 .add__container {
   margin: 0 auto;
   text-align: center;
+}
+
+.add__container p {
+  margin-bottom: 0;
 }
 
 .add__type {

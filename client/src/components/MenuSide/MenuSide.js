@@ -10,13 +10,15 @@ class MenuSide extends React.Component {
   render () {
     return (
       <Menu>
-        <div>
+        <div className="sidemenu_container">
           <UserInfo />
         </div>
 
-        <YearlyBudget />
-        <div>
-          <p>Select a new month: </p>
+        <div className="sidemenu_container">
+          <YearlyBudget />
+        </div>
+        
+        <div className="sidemenu_container">
           <SelectDate />
         </div>
 
