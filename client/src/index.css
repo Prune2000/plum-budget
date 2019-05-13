@@ -21,7 +21,7 @@ code {
 .top {
   height: 400px;
   padding-top: 50px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(back.svg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(img/back.svg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -29,7 +29,7 @@ code {
 
 .top__welcome {
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(orchard-min.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/orchard-min.jpg);
   background-size: cover;
   position: relative;
   font-family: 'Montserrat Alternates', sans-serif;
