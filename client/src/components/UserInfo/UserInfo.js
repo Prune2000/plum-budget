@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const UserInfo = (props) => (
           <div className="user-info">
-            <p>{props.user.username}</p>
+            <p>Welcome {props.user.username}!</p>
           </div>
       );
 
