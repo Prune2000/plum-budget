@@ -9,8 +9,8 @@ class Form extends React.Component {
     this.onDescriptionChange = this.onDescriptionChange.bind(this);
     this.onPriceChange = this.onPriceChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
+    this.getUser = this.getUser.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
 
     
     let date = new Date();
@@ -61,12 +61,6 @@ class Form extends React.Component {
   onSubmit(e) {
     e.preventDefault();
 
-    // Clear the fields of the form after submission but keeps the current selected type
-    const clearFields = () => {
-      this.setState.description = '';
-      this.setState.price = '';
-    }
-
     if (!this.state.type || !this.state.description || !this.state.price) {
         this.setState(() => ({ error: 'Please set a description and a value!' }));
     } else {
@@ -81,7 +75,9 @@ class Form extends React.Component {
               price: this.state.price
             }
         );
-        clearFields();
+        this.setState(() => ({ 
+          description: '',
+          price: '' })); // Clean the form fields after a success
     }
   }
     
