@@ -24,8 +24,12 @@ class MenuSide extends React.Component {
   render () {
     return (
       <Menu>
-        <div className="sidemenu_container">
+        <div className="sidemenu_container-user">
           <UserInfo />
+        </div>
+
+        <div className="sidemenu_container-logout">
+          <button onClick={this.onClick}>Logout</button>
         </div>
 
         <div className="sidemenu_container">
@@ -34,10 +38,6 @@ class MenuSide extends React.Component {
         
         <div className="sidemenu_container">
           <SelectDate />
-        </div>
-
-        <div className="sidemenu_container">
-          <button onClick={this.onClick}>Logout</button>
         </div>
 
       </Menu>

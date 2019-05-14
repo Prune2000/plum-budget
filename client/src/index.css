@@ -91,12 +91,6 @@ code {
   color: white;
 }
 
-/**********************************************
-*** SIDE MENU
-**********************************************/
-.sidemenu_container {
-  margin: 50px 0;
-}
 
 /**********************************************
 *** BUDGET
@@ -243,12 +237,6 @@ code {
   padding: 3px 0;
   margin-left: 10px;
 }
-
-.budget__selectDate {
-
-}
-
-
 
 .add {
   padding: 14px;
@@ -421,6 +409,23 @@ h2 {
 .item:hover .item__delete--btn { display: block; }
 .item:hover .item__value { transform: translateX(-20px); }
 .item:hover .item__percentage { transform: translateX(-20px); }
+
+
+
+/**********************************************
+*** SIDE MENU
+**********************************************/
+.sidemenu_container {
+  margin: 50px 0;
+}
+
+.sidemenu_container-user {
+  margin: 0;
+}
+
+.sidemenu_container-logout {
+  margin: 0 0 50px 0;
+}
 
 /* Position and sizing of burger button */
 .bm-burger-button {
