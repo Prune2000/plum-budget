@@ -314,7 +314,7 @@ code {
 /***** LISTS *****/
 .container {
     width: 1000px;
-    margin: 60px auto;
+    margin: auto;
     padding-bottom: 100px;
 }
 

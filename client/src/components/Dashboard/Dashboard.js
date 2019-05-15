@@ -82,7 +82,7 @@ class Dashboard extends Component {
               <Header />
               
               <AddBudget />
-                
+              
 
               <div className="container clearfix">
                 <div className="income">
