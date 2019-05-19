@@ -34,11 +34,6 @@ module.exports = (app, passport) => {
         });
     });
 
-    app.get('*', (req, res) => {
-        return res.redirect('/');
-    });
-
-
     app.get('/dashboard', isLoggedIn, (req, res) => {
         res.send(JSON.stringify(req.user)); 
     });
