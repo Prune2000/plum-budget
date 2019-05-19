@@ -1,6 +1,10 @@
 {
   "name": "plum-budget",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.15.3",
+    "yarn": "1.15.2"
+  },
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
