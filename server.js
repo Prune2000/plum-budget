@@ -6,7 +6,8 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
 const morgan = require('morgan');
-const session = require('express-session')
+const session = require('express-session');
+const path = require('path');
 
 const config = require('./config');
 const phraseSession = require('./config/session');
@@ -29,10 +30,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false 
 }));
-app.use( (req, res, next) => { // Just here to log the req.session to see what’s going on
-  console.log('req.session', req.session);
-  return next();
-});
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -42,6 +39,16 @@ mongoose.connect(config.getDbConnectionString());
 require('./controllers/auth/authController')(app, passport);
 require('./controllers/api/apiController')(app, passport);
 //apiController(app, passport);
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  // Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
