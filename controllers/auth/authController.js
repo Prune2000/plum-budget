@@ -56,7 +56,7 @@ module.exports = (app, passport) => {
           // find a user in Mongo with provided username
           Users.findOne({
               'username': username,
-              'email': createHash(req.body.email)
+              'email': req.body.email
             }, (err, user) => {
             // In case of any error return
             if (err){
@@ -138,6 +138,6 @@ module.exports = (app, passport) => {
     }
 
     const isValidEmail = (user, email) => {
-      return bCrypt.compareSync(password, user.email);
+      return bCrypt.compareSync(email, user.email);
     }
 }

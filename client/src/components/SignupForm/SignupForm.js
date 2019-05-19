@@ -20,8 +20,11 @@ class Signup extends React.Component {
                         .email('Email is invalid')
                         .required('Email is required'),
                     password: Yup.string()
-                        .min(6, 'Password must be at least 6 characters')
-                        .required('Password is required')
+                        .min(8, 'Password must be at least 8 characters')
+                        .required('Password is required'),
+                    confirmPassword: Yup.string()
+                        .required()
+                        .oneOf([Yup.ref("password"), null], "Passwords must match")
                 })}
                 onSubmit={fields => {
                     let userObj = {
@@ -49,6 +52,11 @@ class Signup extends React.Component {
                             <label htmlFor="password">Password</label>
                             <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
+                            <ErrorMessage name="Confirm Password" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
                             <button type="submit" className="btn btn-primary mr-2">Register</button>
