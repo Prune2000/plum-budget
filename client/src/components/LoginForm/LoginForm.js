@@ -28,19 +28,22 @@ class Login extends React.Component {
                     });
                 }}
                 render={({ errors, status, touched }) => (
-                    <Form>
+                    <Form className="signup-wrapper">
+                        <h1>Login</h1>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
+                            <br />
                             <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
                             <ErrorMessage name="username" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
+                            <br />
                             <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary mr-2">Login</button>
+                            <button type="submit" className="btn-register">Login</button>
                         </div>
                     </Form>
                 )}

@@ -6,12 +6,10 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="top">
-          <SignupForm />
-        </div>
+      <div className="signup-page">
+        <SignupForm />
       </div>
-      
+       
     );
   }
 }

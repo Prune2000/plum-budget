@@ -23,7 +23,7 @@ class Signup extends React.Component {
                         .min(8, 'Password must be at least 8 characters')
                         .required('Password is required'),
                     confirmPassword: Yup.string()
-                        .required()
+                        .required('Please confirm your password')
                         .oneOf([Yup.ref("password"), null], "Passwords must match")
                 })}
                 onSubmit={fields => {
@@ -37,32 +37,37 @@ class Signup extends React.Component {
                     });
                 }}
                 render={({ errors, status, touched }) => (
-                    <Form>
+                    <Form className="signup-wrapper">
+                        <h1>Sign-up</h1>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
+                            <br />
                             <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} />
                             <ErrorMessage name="username" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
+                            <br />
                             <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                             <ErrorMessage name="email" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
+                            <br />
                             <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="confirmPassword">Confirm Password</label>
-                            <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
-                            <ErrorMessage name="Confirm Password" component="div" className="invalid-feedback" />
+                            <br />
+                            <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')}/>
+                            <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary mr-2">Register</button>
-                            <button type="reset" className="btn btn-secondary">Reset</button>
+                            <button type="submit" className="btn-register">REGISTER</button>
                         </div>
-                    </Form>
+                        <div><p>Your password and email are fully encrypted in our database. For your own security, we invite you to avoid using a password you're already using on other websites in case these websites get compromised.</p></div>
+                    </Form>                    
                 )}
             />
         )

@@ -503,3 +503,46 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .menu-tweaks-perso {
   overflow: hidden;
 }
+
+
+/**********************************************
+*** SIGN UP AND LOGIN FORM
+**********************************************/
+
+.signup-page {
+  height: 200vh;
+  padding-top: 50px;
+  background-color: #4c9ce7;
+}
+
+.signup-wrapper {
+  width: 20%;
+  height: auto;
+  margin-left: 40%;
+  padding: 30px 15px;
+  background-color: white;
+  border-radius: 5%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-entry {
+  height: 15px;
+}
+
+.btn-register {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  background-color: #373a47;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s;
+  letter-spacing: 2px;
+}
+
+.btn-register:hover {
+  transform: scale(1.05);
+}
