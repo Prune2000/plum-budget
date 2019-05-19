@@ -29,7 +29,7 @@ class MenuSide extends React.Component {
         </div>
 
         <div className="sidemenu_container-logout">
-          <button onClick={this.onClick}>Logout</button>
+          <button onClick={this.onClick} className="btn-logout">Logout</button>
         </div>
 
         <div className="sidemenu_container">
