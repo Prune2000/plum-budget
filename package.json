@@ -20,7 +20,7 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.3.0",
     "js-yaml": "^3.13.1",
     "lodash.update": "^4.10.2",
     "mongoose": "^5.6.9",
