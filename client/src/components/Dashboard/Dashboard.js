@@ -32,6 +32,7 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     this.checkUser();
+    this.render();
     store.dispatch(getUser());
     store.dispatch(getIncomes());
     store.dispatch(getExpenses());
@@ -39,33 +40,6 @@ class Dashboard extends Component {
 
   updateUser (userObject) {
     this.setState(userObject)
-  }
-
-  checkUser() {
-    axios.get('/dashboard').then(res => {
-      console.log('Get user response: ')
-      console.log(res.data.username)
-      console.log(res.data._id)
-      if (res.data._id) {
-        this.setState({
-          loggedIn: true,
-          username: res.data.username
-        });
-        console.log(this.state);
-      } else {
-        console.log('Get user: no user');
-        this.setState({
-          loggedIn: false,
-          username: null,
-          redirectTo: '/'
-        })
-      }
-    })
-    console.log(this.state);
-  }
-
-  showSettings (event) {
-    event.preventDefault();
   }
 
   render() {
@@ -103,6 +77,38 @@ class Dashboard extends Component {
       );
     }
   }
+
+  checkUser() {
+    axios.get('/api/userinfo').then(res => {
+      console.log('Get user response: ')
+      console.log(res.data.username)
+      console.log(res.data._id)
+      if (res.data._id) {
+        this.setState({
+          loggedIn: true,
+          username: res.data.username
+        });
+        console.log(this.state);
+
+        this.render()
+
+      } else {
+        console.log('Get user: no user');
+        this.setState({
+          loggedIn: false,
+          username: null,
+          redirectTo: '/'
+        })
+      }
+    })
+    console.log(this.state);
+  }
+
+  showSettings (event) {
+    event.preventDefault();
+  }
+
+  
 }
 
 

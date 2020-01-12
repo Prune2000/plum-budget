@@ -7,7 +7,7 @@ import Signup from '../components/Signup/Signup';
 
  
 const AppRouter = () => (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
             <Route exact path="/" component={Welcome}/>
             <Route path="/dashboard" component={Dashboard} />
@@ -16,5 +16,7 @@ const AppRouter = () => (
         </Switch>
     </BrowserRouter>
 );
+
+
  
 export default AppRouter;

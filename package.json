@@ -2,34 +2,31 @@
   "name": "plum-budget",
   "version": "1.0.0",
   "engines": {
-    "node": "10.15.3",
-    "yarn": "1.15.2"
+    "node": "^12.14.1",
+    "yarn": "^1.21.1"
   },
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "axios": "^0.18.1",
     "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.3",
     "cookie-parser": "^1.4.4",
-    "express": "^4.17.1",
-    "express-session": "^1.16.2",
-    "handlebars": "^4.1.2",
-    "js-yaml": "^3.13.1",
-    "lodash.update": "^4.10.2",
-    "mongoose": "^5.6.9",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.3",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1"
   },
   "devDependencies": {
-    "concurrently": "^4.1.1"
+    "concurrently": "^4.0.1"
   }
 }

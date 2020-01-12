@@ -15,7 +15,7 @@ module.exports = (app, passport) => {
         // if user is authenticated in the session, carry on 
         if (req.isAuthenticated()) {
             console.log('isLoggedIn worked');
-            return res.redirect('/dashboard');
+            return next();
         }
         // if they aren't redirect them to the home page
         else {
@@ -34,8 +34,8 @@ module.exports = (app, passport) => {
         });
     });
 
-    app.get('/dashboard', isLoggedIn, (req, res) => {
-        res.send(JSON.stringify(req.user)); 
+    app.get('/api/userinfo', isLoggedIn, (req, res) => {
+        res.send(JSON.stringify(req.user));
     });
 
     // =====================================
