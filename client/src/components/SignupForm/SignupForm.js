@@ -33,7 +33,7 @@ class Signup extends React.Component {
                         password: fields.password
                     }
                     axios.post('/auth/signup', userObj).then(response => {
-                        window.location = response.request.responseURL; // Redirect to dashboard if registering was successful
+                        window.location = response.responseURL; // Redirect to dashboard if registering was successful
                     });
                 }}
                 render={({ errors, status, touched }) => (

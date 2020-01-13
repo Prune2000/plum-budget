@@ -31,7 +31,7 @@ class Form extends React.Component {
   }
 
   getUser() {
-    axios.get('/dashboard').then(res => {
+    axios.get('/api/userinfo').then(res => {
       if (res.data._id) {
         this.setState({
           userID: res.data._id

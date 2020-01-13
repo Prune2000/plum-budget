@@ -32,7 +32,6 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     this.checkUser();
-    this.render();
     store.dispatch(getUser());
     store.dispatch(getIncomes());
     store.dispatch(getExpenses());

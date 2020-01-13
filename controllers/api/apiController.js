@@ -38,6 +38,7 @@ module.exports = (app, passport) => {
         res.send(JSON.stringify(req.user));
     });
 
+
     // =====================================
     // BUDGET APIs =========================
     // =====================================

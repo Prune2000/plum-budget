@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local').Strategy;
 const bCrypt = require('bcrypt');
 
+
 module.exports = (app, passport) => {
 
     app.use(bodyParser.json());
@@ -24,10 +25,18 @@ module.exports = (app, passport) => {
     // LOGIN ==============================
     // =====================================
     app.post('/auth/login', passport.authenticate('login', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/',
-        failureFlash : true 
+      successRedirect: '/auth/successLogin',
+      failureRedirect: '/',
+      failureFlash: 'Invalid username or password.',
+      successFlash: 'Welcome back! Please visit the /dashboard page.' 
     }));
+
+    app.get('/auth/successLogin', (req, res) => {
+      res.send(res.req.username);
+    });
+
+
+
 
     // =====================================
     // LOGOUT ==============================
@@ -41,8 +50,8 @@ module.exports = (app, passport) => {
     // SIGNUP ==============================
     // =====================================
     app.post('/auth/signup', passport.authenticate('signup', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/',
+        successRedirect: '/',
+        failureRedirect: '/signup',
         failureFlash : true 
     }));
 

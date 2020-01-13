@@ -7,7 +7,7 @@ const _getUser = (user) => ({
  
 export const getUser = () => {
     return (dispatch) => {
-        return axios.get('/dashboard').then(res => {
+        return axios.get('/api/userinfo').then(res => {
             const user = {
                 userID: res.data._id,
                 username: res.data.username

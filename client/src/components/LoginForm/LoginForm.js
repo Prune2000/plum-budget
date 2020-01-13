@@ -23,8 +23,8 @@ class Login extends React.Component {
                         email: fields.email,
                         password: fields.password
                     }
-                    axios.post('/auth/login', userObj).then(response => {
-                        window.location = response.request.responseURL; // Redirect to dashboard if registering was successful
+                    axios.post('/auth/login', userObj).then(res => {
+                        window.location = "/dashboard"
                     });
                 }}
                 render={({ errors, status, touched }) => (
