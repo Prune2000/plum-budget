@@ -26,7 +26,7 @@ module.exports = (app, passport) => {
     // =====================================
     app.post('/auth/login', passport.authenticate('login', {
       successRedirect: '/auth/successLogin',
-      failureRedirect: '/',
+      failureRedirect: '/auth/failLogin',
       failureFlash: 'Invalid username or password.',
       successFlash: 'Welcome back! Please visit the /dashboard page.' 
     }));
@@ -35,6 +35,9 @@ module.exports = (app, passport) => {
       res.send(res.req.username);
     });
 
+    app.get('/auth/failLogin', (req, res) => {
+      res.send('error');
+    });
 
 
 
@@ -50,10 +53,12 @@ module.exports = (app, passport) => {
     // SIGNUP ==============================
     // =====================================
     app.post('/auth/signup', passport.authenticate('signup', {
-        successRedirect: '/',
-        failureRedirect: '/signup',
+        successRedirect: '/auth/successLogin',
+        failureRedirect: '',
         failureFlash : true 
     }));
+
+    
 
 
     // Passport Sign-Up

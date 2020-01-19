@@ -32,9 +32,16 @@ class Signup extends React.Component {
                         email: fields.email,
                         password: fields.password
                     }
-                    axios.post('/auth/signup', userObj).then(response => {
-                        window.location = response.responseURL; // Redirect to dashboard if registering was successful
-                    });
+                    axios.post('/auth/login', userObj)
+                        .then(res => {
+                            window.location = "/dashboard"
+                        })
+                        .catch (error => {
+                            console.log(error);
+                            window.location = "/login"
+                        })
+                        
+                  
                 }}
                 render={({ errors, status, touched }) => (
                     <Form className="signup-wrapper">
