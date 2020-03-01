@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeMonth } from '../../actions/month';
 
-class SelectDate extends React.Component {
+class SelectMonth extends React.Component {
   constructor(props) {
     super(props);
     this.onMonthChange = this.onMonthChange.bind(this);
@@ -51,4 +51,4 @@ class SelectDate extends React.Component {
   }
 };
 
-export default connect()(SelectDate);
+export default connect()(SelectMonth);

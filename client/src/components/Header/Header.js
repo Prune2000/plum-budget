@@ -9,7 +9,7 @@ const Header = (props) => (
 
           <div className="budget">
               <div className="budget__title">
-                  Available Budget in <span className="budget__title--month">{props.month}</span>:
+                  Available Budget in <span className="budget__title--month">{props.month} </span> <span className="budget__title--month">{props.year} </span> :
               </div>
               
               <div className="budget__value">{props.total}</div>
