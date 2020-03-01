@@ -64,7 +64,7 @@ code {
 }
 
 .top__menu ul li a {
-  diplay: block;
+  display: block;
   padding: 15px;
   text-decoration: none;
   font-size: 120%;
@@ -560,4 +560,57 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .btn-register:hover {
   transform: scale(1.05);
+}
+
+/*-------------------------------*/
+/* Small phones to small tablets */
+/*-------------------------------*/
+
+@media only screen and (max-width: 767px) {
+
+  /* HOME PAGE */
+  .top__welcome {
+    height: 150vh;
+  }
+  .top__logo {
+    margin: auto;
+    width: 70%;
+  }
+
+  /* LOGIN PAGE */
+  .signup-wrapper {
+    width: 60%;
+    margin-left: 20%;
+  }
+  
+  .form-control {
+    height: 20px;
+    margin-top: 10px
+  }
+
+  /* DASHBOARD */
+  .bm-burger-bars {
+    background: #f5f6f7;
+  }
+
+  .add__description {
+    width: auto;
+  }
+
+  .container {
+    width: auto;
+    padding-bottom: 100px;
+  }
+  .income {
+    width: auto;
+    margin-bottom: 20vh;
+    margin-right: 0px;
+    float: none;
+  }
+  .expenses {
+    width: auto;
+    margin-bottom: 20vh;
+    margin-right: 0px;
+    float: none;
+  }
 }
