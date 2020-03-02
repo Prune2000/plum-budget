@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
     let arr = state.month;
     return {
         expenses: state.expense.filter(expense => expense.month === state.month[arr.length - 1].month),
-        month: state.month[arr.length - 1].month
+        month: state.month[arr.length - 1].month,
+        year: state.year
     };
 }
  

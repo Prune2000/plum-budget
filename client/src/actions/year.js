@@ -7,7 +7,7 @@ const _getCurrentYear = () => ({
 });
  
 export const getCurrentYear = () => {
-    const currentYear = date.getFullYear();
+    let currentYear = date.getFullYear();
     return (dispatch) => {
         dispatch(_getCurrentYear(currentYear));
     }
