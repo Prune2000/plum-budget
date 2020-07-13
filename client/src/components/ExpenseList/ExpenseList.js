@@ -13,11 +13,12 @@ const ExpenseList = (props) => (
 );
  
 const mapStateToProps = (state) => {
-    let arr = state.month;
+    let arr = state.month
+    let arr2 = state.year
     return {
         expenses: state.expense.filter(expense => expense.month === state.month[arr.length - 1].month),
         month: state.month[arr.length - 1].month,
-        year: state.year
+        year: Number(state.year[arr2.length - 1].year)
     };
 }
  

@@ -14,7 +14,7 @@ class SelectYear extends React.Component {
     let current_year = new Date().getFullYear();
 
     this.state = {
-        year: "2010",
+        year: current_year,
       }
   }
 
@@ -35,11 +35,6 @@ class SelectYear extends React.Component {
         <p>Select another year: </p>
         <form className="add__form" onSubmit={this.onSubmit}>
           <select className="change__date" name="year" onChange={this.onYearChange}>
-              <option value="2010">2010</option>
-              <option value="2011">2011</option>
-              <option value="2012">2012</option>
-              <option value="2013">2013</option>
-              <option value="2014">2014</option>
               <option value="2015">2015</option>
               <option value="2016">2016</option>
               <option value="2017">2017</option>
@@ -49,6 +44,8 @@ class SelectYear extends React.Component {
               <option value="2021">2021</option>
               <option value="2022">2022</option>
               <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
           </select>
           <button type="submit" className="add__btn">Select</button>
         </form>
