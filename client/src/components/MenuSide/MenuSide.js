@@ -5,8 +5,8 @@ import { slide as Menu } from 'react-burger-menu';
 
 import YearlyBudget from '../YearlyBudget/YearlyBudget';
 import UserInfo from '../UserInfo/UserInfo';
-import SelectMonth from '../SelectMonth/SelectMonth';
-import SelectYear from '../SelectYear/SelectYear';
+import SelectMonth from '../SelectDate/SelectMonth';
+import SelectYear from '../SelectDate/SelectYear';
 
 class MenuSide extends React.Component {
 
@@ -44,6 +44,7 @@ class MenuSide extends React.Component {
         <div className="sidemenu_container">
           <SelectYear />
         </div>
+
       </Menu>
     );
   }

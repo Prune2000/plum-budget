@@ -40,15 +40,12 @@ module.exports = {
 }
 ```
 
-After you have completed the "config" folder, open a terminal and go to the main directory and type: npm install
-Then go into client, and run npm install again.
-
-to launch the app, type:
+After you have completed the "config" folder, open a terminal and go to the main directory and to launch the app, type:
 yarn dev
 
 The app will listen to localhost:3000
 
-**If you have any problem at any point, feel free to contact me on Twitter (https://twitter.com/victor_theyknow) or by email (c.victor.p@protonmail.com)**
+**If you have any problem at any point, feel free to contact me on Twitter (https://twitter.com/prune_cam) or by email (camille@plommetre.com)**
 
 ## License
 

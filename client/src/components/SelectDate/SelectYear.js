@@ -2,19 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeYear } from '../../actions/year';
 
-
 class SelectYear extends React.Component {
   constructor(props) {
     super(props);
     this.onYearChange = this.onYearChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
-    const old_year = ((new Date()).getFullYear()) - 10;
-    this.years = Array.from(new Array(20),(val, index) => index + old_year);
-    let current_year = new Date().getFullYear();
-
     this.state = {
-        year: current_year,
+        year: '2021'
       }
   }
 
@@ -25,7 +20,7 @@ class SelectYear extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.dispatch(changeYear(this.state.year));
+    this.props.dispatch(changeYear(this.state.Year));
   }
     
   render() {
@@ -35,17 +30,9 @@ class SelectYear extends React.Component {
         <p>Select another year: </p>
         <form className="add__form" onSubmit={this.onSubmit}>
           <select className="change__date" name="year" onChange={this.onYearChange}>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
               <option value="2020">2020</option>
               <option value="2021">2021</option>
               <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
-              <option value="2025">2025</option>
           </select>
           <button type="submit" className="add__btn">Select</button>
         </form>

@@ -9,7 +9,7 @@ class SelectMonth extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-        month: 'January',
+        month: 'January'
       }
   }
 

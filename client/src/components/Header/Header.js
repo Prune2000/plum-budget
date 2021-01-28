@@ -9,7 +9,7 @@ const Header = (props) => (
 
           <div className="budget">
               <div className="budget__title">
-                  Available Budget in <span className="budget__title--month">{props.month} </span> <span className="budget__title--month">{props.year} </span> :
+                  Available Budget in <span className="budget__title--month">{props.month} {props.year}</span>:
               </div>
               
               <div className="budget__value">{props.total}</div>
@@ -24,20 +24,20 @@ const Header = (props) => (
 
 const mapStateToProps = (state) => {
 
-  let arr_month = state.month;
-  let arr_year = state.year
+  let arrMonth = state.month;
+  let arrYear = state.year;
 
   // Calculate the total expenses for the selected month
-  let expensePerMonth = state.expense.filter(expense => expense.month === state.month[arr_month.length - 1].month);
+  let expensePerMonth = state.expense.filter(expense => expense.month === state.month[arrMonth.length - 1].month);
   let expenseArray = [];
   expensePerMonth.map(expense => {
       return expenseArray.push(Number(expense.price)); // the prices are stored as strings so need to convert them
   });
-  const arrSum = arr_month => arr_month.reduce((a,b) => a + b, 0);
+  const arrSum = arr => arr.reduce((a,b) => a + b, 0);
   let expenseTotal = arrSum(expenseArray);
 
   // Calculate the total incomes for the selected month
-  let incomePerMonth = state.income.filter(income => income.month === state.month[arr_month.length - 1].month);
+  let incomePerMonth = state.income.filter(income => income.month === state.month[arrMonth.length - 1].month);
   let incomeArray = [];
   incomePerMonth.map(income => {
       return incomeArray.push(Number(income.price)); // the prices are stored as strings so need to convert them
@@ -73,14 +73,14 @@ const mapStateToProps = (state) => {
       return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;  
   };
 
-  console.log(state.year);
-
   return {
-    month: state.month[arr_month.length - 1].month,
-    year: state.year[arr_year.length - 1].year,
+    month: state.month[arrMonth.length - 1].month,
+    year: state.year[arrYear.length - 1].year,
     total: formatNumber(budgetTotal, calcType(budgetTotal)),
     user: state.user
   };
 }
+
+
      
 export default connect(mapStateToProps)(Header);

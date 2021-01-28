@@ -13,14 +13,10 @@ const IncomeList = (props) => (
 );
  
 const mapStateToProps = (state) => {
-    let arr = state.month
-    let arr2 = state.year
-    console.log(state.year)
+    let arr = state.month;
     return {
         incomes: state.income.filter(income => income.month === state.month[arr.length - 1].month),
-        month: state.month[arr.length - 1].month,
-        year: Number(state.year[arr2.length - 1].year)
-
+        month: state.month[arr.length - 1].month
     };
 }
  

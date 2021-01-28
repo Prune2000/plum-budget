@@ -1,5 +1,6 @@
 // Find the year
-let year = new Date().getFullYear();
+let date = new Date();
+let year = date.getFullYear();
 
 const filtersReducerDefaultState = [{
     year: year
