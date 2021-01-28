@@ -45,7 +45,7 @@ yarn dev
 
 The app will listen to localhost:3000
 
-**If you have any problem at any point, feel free to contact me on Twitter (https://twitter.com/prune_cam) or by email (camille@plommetre.com)**
+**If you have any problem at any point, feel free to contact me on Twitter (https://twitter.com/victor_theyknow)**
 
 ## License
 
