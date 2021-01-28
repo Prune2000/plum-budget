@@ -1,5 +1,2 @@
 config
 node_modules
-yarn.lock
-client/yarn.lock
-
